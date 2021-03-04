@@ -1,0 +1,63 @@
+{% extends 'form.html.twig' %}
+{% block body %}
+
+
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Data Table</strong>
+                            </div>
+                            <div class="card-body">
+                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+
+                                    <tr>
+
+                                        <td> ID </td>
+                                        <td> Cin </td>
+                                        <td>Nom</td>
+                                        <td>Prenom
+                                        <td> Age </td>
+                                        <td> Gender</td>
+                                        <td>Email</td>
+                                        <td> Pays</td>
+                                        <td>Num_telephone</td>
+
+                                        <td></td>
+                                        <td></td>
+
+                                    </tr>
+                                    {% for p in listpatient %}
+
+                                    <tr>
+                                        <td> {{p.id}}</td>
+                                        <td> {{p.cin}}</td>
+                                        <td> {{p.nom}}</td>
+                                        <td> {{p.prenom}}</td>
+                                        <td> {{p.age}}</td>
+                                        <td> {{p.genre}}</td>
+                                        <td> {{p.email}}</td>
+                                        <td> {{p.pays}}</td>
+                                        <td> {{p.phone}}</td>
+
+
+
+                                        <td><a href="{{ path('delete',{'id':p.id}) }}">EFFACER</a></td>
+
+
+                                        {% endfor %}
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div><!-- .animated -->
+        </div><!-- .content -->
+
+    {% endblock %}

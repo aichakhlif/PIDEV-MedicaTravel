@@ -1,0 +1,35 @@
+{% extends 'contact.html.twig' %}
+{% block body %}
+    <table id="bootstrap-data-table-export"  class="table table-dark">
+    <tr>
+
+        <td> ID </td>
+        <td>Nom</td>
+        <td>Preom</td>
+        <td>Age</td>
+        <td>Genre</td>
+        <td>Email</td>
+        <td>Pays</td>
+        <td>Phone_number</td>
+
+    </tr>
+    {% for p in listpatient %}
+
+        <tr>
+            <td> {{p.id}}</td>
+            <td> {{p.nom}}</td>
+            <td> {{p.prenom}}</td>
+            <td> {{p.age}}</td>
+            <td> {{p.email}}</td>
+            <td> {{p.pays}}</td>
+            <td> {{p.phone}}</td>
+
+            <td><a href="{{ path('deleteR',{'id':p.id}) }}">EFFACER</a></td>
+            <td><a href="{{ path('updatepatient',{'id':p.id}) }}">Update</a></td>
+
+
+        </tr>
+
+    {% endfor %}
+    </table>
+{% endblock %}
