@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <html>
+    <style>
+        .animateuse{
+            animation: leelaanimate 2s infinite;
+        }
+        @keyframes leelaanimate{
+            0%{color:red}
+            10%{color:Grey}
+            20%{color:whitesmoke}
+        }</style>
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title"><h1 class="text-center   text-uppercase animateuse">Ajouter un Medecin !</h1></strong>
+                        </div>
+
+                        {{ form_start(our_form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                        <tr>
+                            {{ form_label(our_form.nom,"Nom : ") }}
+                            {{ form_widget(our_form.nom)}}
+                            {{ form_errors(our_form.nom)}}
+                        </tr>
+
+                        {{ form_end(our_form) }}
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+    </div><!-- .content -->
+
+
+    </div><!-- /#right-panel -->
+
+    </html>
+{% endblock %}

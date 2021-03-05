@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <html>
+    <style>
+        .animateuse{
+            animation: leelaanimate 2s infinite;
+        }
+        @keyframes leelaanimate{
+            0%{color:red}
+            10%{color:Grey}
+            20%{color:whitesmoke}
+        }</style>
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title"><h1 class="text-center   text-uppercase animateuse">Modifier une clinique !</h1></strong>
+                        </div>
+
+                        {{ form_start(our_form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                        <tr>
+                            {{ form_label(our_form.nom,"Nom : ") }}
+                            {{ form_widget(our_form.nom)}}
+                            {{ form_errors(our_form.nom)}}
+                        </tr>
+                        <tr>
+                            {{ form_label(our_form.adresse,"Adresse : ") }}
+                            {{ form_widget(our_form.adresse)}}
+                            {{ form_errors(our_form.adresse)}}
+                        </tr>
+                        <tr>
+                            {{ form_label(our_form.tel,"Numéro téléphone : ") }}
+                            {{ form_widget(our_form.tel)}}
+                            {{ form_errors(our_form.tel)}}
+                        </tr>
+                        <tr>
+                            {{ form_label(our_form.image,"Url Image : ") }}
+                            {{ form_widget(our_form.image)}}
+                            {{ form_errors(our_form.image)}}
+                        </tr>
+                        {{ form_end(our_form) }}
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+    </div><!-- .content -->
+
+
+    </div><!-- /#right-panel -->
+
+    </html>
+
+
+
+
+
+
+    {# {{ form(our_form) }} #}
+{% endblock %}

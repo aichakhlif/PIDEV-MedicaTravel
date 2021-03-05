@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <html>
+    <style>
+        .animateuse{
+            animation: leelaanimate 2s infinite;
+        }
+        @keyframes leelaanimate{
+            0%{color:red}
+            10%{color:Grey}
+            20%{color:whitesmoke}
+
+        }</style>
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title"><h1 class="text-center   text-uppercase animateuse">Ajouter une Offre !</h1></strong>
+                        </div>
+                        <table>
+                        {{ form_start(our_form,{'attr':{'novalidate' : 'novalidate'}}) }}
+                        <tr><a  data-bs-toggle="collapse" class="sidebar-link" aria-expanded="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                     class="feather feather-users align-middle">
+
+
+                                    </svg>
+                                <span class="align-middle">  {{ form_label(our_form. medecin,"Medecin : ") }}
+                                    {{ form_widget(our_form.medecin)}}
+                                    {{ form_errors(our_form.medecin)}}</span>
+                            </a>
+
+                        </tr>
+                        <tr>
+                            <a  data-bs-toggle="collapse" class="sidebar-link" aria-expanded="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                     class="feather feather-users align-middle">
+                                   </svg>
+                                <span class="align-middle">   {{ form_label(our_form.clinique,"Clinique : ") }}
+                                    {{ form_widget(our_form.clinique)}}
+                                    {{ form_errors(our_form.clinique)}}</span>
+                            </a>
+
+                        </tr>
+                        <tr>
+                            <a  data-bs-toggle="collapse" class="sidebar-link" aria-expanded="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                     class="feather feather-users align-middle">
+                                   </svg>
+                                <span class="align-middle">    {{ form_label(our_form.intervention,"Intervention : ") }}
+                                    {{ form_widget(our_form.intervention)}}
+                                    {{ form_errors(our_form.intervention)}}</span>
+                            </a>
+
+
+                        </tr>
+                        <tr>
+
+                            {{ form_label(our_form.prix,"Prix : ") }}
+                            {{ form_widget(our_form.prix)}}
+                            {{ form_errors(our_form.prix)}}
+                        </tr>
+
+                        {{ form_end(our_form) }}
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+    </div><!-- .content -->
+
+
+    </div><!-- /#right-panel -->
+
+    </html>
+
+
+{% endblock %}
