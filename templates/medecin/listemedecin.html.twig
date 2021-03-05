@@ -1,0 +1,73 @@
+
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+    <div class="row">
+
+    <div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <strong class="card-title">Table des Medecins</strong>
+    </div>
+    <div class="card-body">
+        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+
+    <tr>
+
+        <td> ID </td>
+        <td>Nom</td>
+        <td>Prenom</td>
+        <td>Email</td>
+        <td>Num</td>
+        <td>Specialist en </td>
+        <td>image </td>
+
+        <td></td>
+        <td></td>
+
+    </tr>
+    {%for doc in listmedecin %}
+    <tr>
+        <td>{{ doc.id }}</td>
+        <td>{{ doc.nom }}</td>
+        <td>{{ doc.prenom }}</td>
+        <td>{{ doc.email}}</td>
+        <td>{{ doc.num}}</td>
+        <td>{{ doc.specialite}}</td>
+        <td>{{ doc.pic}}</td>
+        <td><a href="{{ path('deleteDOC' ,{'id':doc.id})}}" >Supprimer</a></td>
+        <td><a href="{{ path('updateDOC' ,{'id':doc.id})}}" >Modifier</a></td>
+
+
+
+    </tr>
+
+    {% endfor %}
+    </table>
+    </div>
+    </div>
+    </div>
+
+
+    </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+    {% block js %}
+        <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+    {% endblock %}
+
+
+
+
+
+    {% endblock %}

@@ -1,0 +1,55 @@
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card">
+        <div class="card-header">
+
+
+            <h5 class="card-title mb-0">Private info</h5>
+        </div>
+
+
+
+            {{ form_start(Doctorform,{'attr':{'novalidate' : 'novalidate'}}) }}
+            {{ form_label(Doctorform.nom,"nom : ") }}
+            {{ form_widget(Doctorform.nom)}}
+            {{ form_errors(Doctorform.nom)}}
+
+            {{ form_label(Doctorform.prenom,"prenom : ") }}
+            {{ form_widget(Doctorform.prenom)}}
+            {{ form_errors(Doctorform.prenom)}}
+
+
+
+
+            {{ form_label(Doctorform.email,"email : ") }}
+            {{ form_widget(Doctorform.email)}}
+            {{ form_errors(Doctorform.email)}}
+
+
+            {{ form_label(Doctorform.num,"num : ") }}
+            {{ form_widget(Doctorform.num)}}
+            {{ form_errors(Doctorform.num)}}
+
+            {{ form_label(Doctorform.specialite,"specialite : ") }}
+            {{ form_widget(Doctorform.specialite)}}
+            {{ form_errors(Doctorform.specialite)}}
+
+
+            {{ form_label(Doctorform.pic,"pic : ") }}
+            {{ form_widget(Doctorform.pic)}}
+            {{ form_errors(Doctorform.pic)}}
+
+
+        {{ form_end(Doctorform) }}
+
+
+
+
+    </div>
+
+{% endblock %}
