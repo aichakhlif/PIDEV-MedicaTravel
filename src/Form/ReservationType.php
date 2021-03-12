@@ -25,7 +25,7 @@ class ReservationType extends AbstractType
             ->add('nom',TextType::class)
             ->add('prenom',TextType::class)
             ->add('email',TextType::class)
-            ->add('date_n',TextType::class)
+            ->add('date_n',DateType::class)
             ->add('tel',TextType::class)
             ->add('pays',TextType::class)
             ->add('medecin')

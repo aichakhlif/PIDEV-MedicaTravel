@@ -120,9 +120,9 @@
 
 
 <!-- Consultation Section Begin -->
-<section class="hero spad set-bg left" data-setbg="img/hero-bg.jpg">
+<section class="hero spad set-bg" data-setbg="img/hero-bg.jpg">
     <div  class="container">
-        <div class="row justify-content-start">
+        <div class="row">
 
             <div  class=".col-xl-15">
                 <div class="consultation__form">
@@ -131,26 +131,16 @@
                         <h2>VOS RESERVATIONS PERSONNELLES :</h2>
                     </div>
 
+                    {{ form_start(our_form) }}
+                    {{ form_widget(our_form) }}
+                    {{ form_end(our_form) }}
+
+
+                    <div class="container pt-2 text-center">
 
 
 
-                    <div class="container pt-2 text-center" id="Table">
-
-                        <table id="tableac" class="table table-striped table-bordered">
-
-                            <script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
-
-                            <input type="text" id="search" class="form-control" placeholder="Search">
-<br>
-                            <div class="at-loginarea float-right">
-
-                                <button id="button" type="button" class="btn btn-outline-default btn-rounded waves-effect">	<a href="{{ 'trireservation' }}"  class="at-linkactive">sort by pays </a></button>
-
-                                <button id="button" type="button" class="btn btn-outline-default btn-rounded waves-effect">	<a href="{{ 'trireservationinter' }}"  class="at-linkactive">sort by intervention </a></button>
-
-
-                            </div>
-<br><br>
+                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                             <thead>
                             <tr>
                                 <th style="width:10%;">id</th>
@@ -162,82 +152,46 @@
                                 <th  style="width:10%">Date de naissance</th>
                                 <th style="width:10%">telephone</th>
                                 <th style="width:10%">pays</th>
-                                <th style="width:10%">medecin</th>
+                                <!--  <th style="width:10%">medecin</th>!-->
                                 <th style="width:10%">type intervention</th>
                                 <th style="width:10%">clinique</th>
                             </tr>
                             </thead>
-                            <tbody id="all">
+                            <tbody>
                             {% for res in res %}
                                 <tr>
                                     <td>{{ res.id }}</td>
                                     <td>{{ res.nom}}</td>
                                     <td>{{ res.prenom }}</td>
                                     <td>{{ res.email}}</td>
-                                    <td>{{ res.daten|date('d/m/Y')}}</td>
+                                    <td>{{ res.daten}}</td>
                                     <td>{{ res.tel }}</td>
                                     <td>{{ res.pays}}</td>
-                                   <td> {{  res.medecin}}</td>
+                                    <!--  <td> res.medecin}}</td> !-->
                                     <td>{{ res.intervention }}</td>
                                     <td>{{ res.clinique}}</td>
 
-                                    <td><a class="site-btn" href="{{ path("edit",{"id":res.id}) }}">edit</a>
+                                    <!-- <td><a class="site-btn" href=" path("edit",{"id":res.id}) }}">edit</a>!-->
 
                                     <td> <form method="post" action="{{ path ('dropreservation', {'id' : res.id})}}">
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button class="site-btn">drop</button>
+                                            <button class="site-btn">remove</button>
                                         </form>
 
-
+                                    <td class="table-action">
+                                        <a href="{{ path("edit",{"id":res.id}) }}"><i class="align-middle" data-feather="edit-2"></i></a>
+                                        <a href="#"><i class="align-middle" data-feather="trash"></i></a>
+                                    </td>
 
 
                                     </td>
 
 
                                 </tr>
-
-                            <script>
-                                $(document).ready(function(){
-                                    $('#search').keyup(function(){
-                                        search_table($(this).val());
-                                    });
-                                    function search_table(value){
-                                        $('#tableac tbody tr').each(function(){
-                                            var found = 'false';
-                                            $(this).each(function(){
-                                                if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
-                                                {
-                                                    found = 'true';
-                                                }
-                                            });
-                                            if(found == 'true')
-                                            {
-                                                $(this).show();
-
-                                            }
-                                            else
-                                            {
-                                                $(this).hide();
-
-                                            }
-                                        });
-                                    }
-                                });
-                            </script>
-
-                            </tbody>
                             {% endfor %}
 
-
-
-
-
-
-
+                            </tbody>
                         </table>
-
-                        <button onclick="PrintDiv();" class="site-btn">  imprimer </button>
-                        <a class="site-btn" href="{{ path('pdf') }}">PDF</a>
 
                     </div>
 
@@ -383,20 +337,6 @@
         }
     }
 </script>
-
-
-<!--****************************************************!-->
-
-<script type="text/javascript">
-    function PrintDiv() {
-        var divToPrint = document.getElementById('Table');
-        var popupWin = window.open('', '_blank', 'width=900,height=700');
-        popupWin.document.open();
-        popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
-        popupWin.document.close();
-    }
-</script>
-
 
 </body>
 

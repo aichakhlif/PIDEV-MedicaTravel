@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Aesthetic Template">
+    <meta name="keywords" content="Aesthetic, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aesthetic | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+
+<body>
+
+
+
+
+<!-- Consultation Section Begin -->
+<section class="hero spad set-bg" data-setbg="img/hero-bg.jpg">
+    <div  class="container">
+        <div class="row">
+
+            <div  class=".col-xl-15">
+                <div class="consultation__form">
+
+                    <div class="section-title">
+                        <h2>VOS RESERVATIONS PERSONNELLES :</h2>
+                    </div>
+
+
+
+
+                    <div class="container pt-2 text-center" id="Table">
+
+                        <table id="tableac" class="table table-striped table-bordered">
+
+
+
+
+
+                            </div>
+                            <br><br>
+                            <thead>
+                            <tr>
+                                <th style="width:10%;">id</th>
+
+                                <th style="width:10%;">Nom</th>
+                                <th style="width:10%;">Prenom</th>
+
+                                <th style="width:10%">Email</th>
+                                <th  style="width:10%">Date de naissance</th>
+                                <th style="width:10%">telephone</th>
+                                <th style="width:10%">pays</th>
+                                <th style="width:10%">medecin</th>
+                                <th style="width:10%">type intervention</th>
+                                <th style="width:10%">clinique</th>
+                            </tr>
+                            </thead>
+                            <tbody id="all">
+                            {% for res in res %}
+                            <tr>
+                                <td>{{ res.id }}</td>
+                                <td>{{ res.nom}}</td>
+                                <td>{{ res.prenom }}</td>
+                                <td>{{ res.email}}</td>
+                                <td>{{ res.daten|date('d/m/Y')}}</td>
+                                <td>{{ res.tel }}</td>
+                                <td>{{ res.pays}}</td>
+                                <td> {{  res.medecin}}</td>
+                                <td>{{ res.intervention }}</td>
+                                <td>{{ res.clinique}}</td>
+
+
+
+
+
+                            </tr>
+
+
+
+
+                            </tbody>
+                            {% endfor %}
+
+
+
+
+
+
+
+                        </table>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+
+
+
+
+<!--****************************************************!-->
+
+
+
+</body>
+
+</html>

@@ -62,24 +62,26 @@
                                     <th  style="width:10%">Date de naissance</th>
                                     <th style="width:10%">telephone</th>
                                     <th style="width:10%">pays</th>
-
-                                    <th style="width:10%">offre</th>
-
-
+                                    <!--  <th style="width:10%">medecin</th>!-->
+                                    <th style="width:10%">type intervention</th>
+                                    <th style="width:10%">clinique</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 {% for res in res %}
                                     <tr>
                                         <td>{{ res.id }}</td>
                                         <td>{{ res.nom}}</td>
                                         <td>{{ res.prenom }}</td>
                                         <td>{{ res.email}}</td>
-                                        <td>{{ res.daten}}</td>
+                                        <td>{{ res.daten|date('d/m/Y')}}</td>
                                         <td>{{ res.tel }}</td>
                                         <td>{{ res.pays}}</td>
-                                        <td>{{ res.offre}}</td>
+                                        <!--  <td> res.medecin}}</td> !-->
+                                        <td>{{ res.intervention }}</td>
+                                        <td>{{ res.clinique}}</td>
+
+                                        <td><a class="site-btn " href="#">contacter</a>
 
 
                                     </tr>
@@ -96,10 +98,37 @@
         </div><!-- .animated -->
     </div><!-- .content -->
 
+    <!-- .contact -->
+    <div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <strong class="card-title">contact patient</strong>
+    </div>
+    <div class="card-body">
 
 
+
+    {{ form_start(our_form,{'attr':{'novalidate' : 'novalidate'}}) }}
+<br>
+    {{ form_label(our_form.nom,"Nom : ") }}
+    {{ form_widget(our_form.nom)}}
+    {{ form_errors(our_form.nom)}}
+<br>
+    {{ form_label(our_form.email,"email : ") }}
+    {{ form_widget(our_form.email)}}
+    {{ form_errors(our_form.email)}}
+<br>
+    {{ form_label(our_form.message,"message : ") }}
+    {{ form_widget(our_form.message)}}
+    {{ form_errors(our_form.message)}}
+
+
+    {{ form_end(our_form) }}
     <!-- Right Panel -->
 
+    </div>
+    </div>
+    </div>
 
 
     </body>

@@ -50,11 +50,7 @@ class Reservation
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * * @Assert\NotBlank(message="Ce champs est obligatoire")
-
-
-
+     * @ORM\Column(type="date")
      */
     private $date_n;
 
@@ -150,12 +146,12 @@ class Reservation
         return $this;
     }
 
-    public function getDateN(): ?string
+    public function getDateN(): ?\DateTimeInterface
     {
         return $this->date_n;
     }
 
-    public function setDateN(string $date_n): self
+    public function setDateN(\DateTimeInterface $date_n): self
     {
         $this->date_n = $date_n;
 

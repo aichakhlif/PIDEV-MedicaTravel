@@ -47,12 +47,25 @@ class ReservationRepository extends ServiceEntityRepository
         ;
     }
     */
-    public function listreservation()
+   /* public function listreservation()
     {
         $em =$this->getEntityManager();
         $query= $em->createQuery('SELECT p.medecin FROM App\Entity\Reservation p ');
             return $query->getResult();
+    }*/
+
+    public function listresOrderByPays()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.pays','ASC ')
+            ->getQuery()->getResult();
     }
 
+    public function listresOrderByintervention()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.intervention','DESC ')
+            ->getQuery()->getResult();
+    }
 
 }
