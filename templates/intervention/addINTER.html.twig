@@ -3,46 +3,50 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="card">
-        <div class="card-header">
+<div class="col-md-9 col-xl-10">
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="account" role="tabpanel">
 
+            <div class="card">
+                <div class="card-header">
 
-            <h5 class="card-title mb-0">Private info</h5>
-        </div>
+                    <h5 class="card-title mb-0">Private info</h5>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
 
 
 
         {{ form_start(OPform,{'attr':{'novalidate' : 'novalidate'}}) }}
 
-        {{ form_label(OPform.nom,"nom : ") }}
-        {{ form_widget(OPform.nom)}}
-        {{ form_errors(OPform.nom)}}
+                                {{ form_label(OPform.Specialite,"Specialite :") }}
+                                <br>
+                                {{ form_widget(OPform.Specialite)}}
+                                {{ form_errors(OPform.Specialite)}}
+                            </div>
+                            <div class="mb-3">
 
-        {{ form_label(OPform.type,"Type : ") }}
-        {{ form_widget(OPform.type)}}
-        {{ form_errors(OPform.type)}}
+        {{ form_label(OPform.description,"description : ") }}
+        {{ form_widget(OPform.description)}}
+        {{ form_errors(OPform.description)}}
 
+                            </div>
+                        </div>
 
+                    </div>
 
-
-        {{ form_label(OPform.duree,"durée : ") }}
-        <br>
-        {{ form_widget(OPform.duree)}}
-        {{ form_errors(OPform.duree)}}
-        <br>
-
-
-        {{ form_label(OPform.tarif,"Tarif : ") }}
-        <br>
-        {{ form_widget(OPform.tarif)}}
-        {{ form_errors(OPform.tarif)}}
-
-        {{ form_label(OPform.medecin,"Nom medecin :") }}
-        <br>
-        {{ form_widget(OPform.medecin)}}
-        {{ form_errors(OPform.medecin)}}
+                </div>
+            </div>
 
 
+
+            <div>
+                {{ form_widget(OPform.Envoyer)}}
+                {{ form_widget(OPform.Annuler)}}
+            </div>
 
 
 
@@ -52,5 +56,10 @@
 
 
 
+        </div>
     </div>
+</div>
+
+
 {% endblock %}
+

@@ -3,8 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Medecin;
+use App\Entity\Specialite;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,7 +34,7 @@ class MedecinFType extends AbstractType
                     'placeholder'=>'Prenom'
                 ]
             ])
-            ->add('email',TextType::class,[
+            ->add('email',EmailType::class,[
                 'attr'=> [
                     'class'=>'form-control',
                     'placeholder'=>'Email'
@@ -40,19 +45,23 @@ class MedecinFType extends AbstractType
                     'class'=>'form-control',
                     'placeholder'=>'Numero de telephone'
                 ]])
-            ->add('specialite',TextType::class,[
+            ->add('Specialite',EntityType::class,[
+                'class' => Specialite::class,
+                'multiple'=>true,
                 'attr'=> [
                     'class'=>'form-control',
                     'placeholder'=>'Specilité'
                 ]
             ])
-            ->add('pic',TextType::class,[
-                'attr'=> [
-                    'class'=>'form-control',
-                    'placeholder'=>'Path of the picture'
-                ]
-            ])
+            ->add('pic',FileType::class,
+                array('data_class'=>null,'required' => false,'mapped'=>false))
+
+
             ->add('Envoyer', SubmitType::class,[
+                'attr'=> [
+                    'class'=>'btn btn-primary'
+                ]])
+            ->add('Annuler', ResetType::class,[
                 'attr'=> [
                     'class'=>'btn btn-primary'
                 ]])

@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
     {% endblock %}
 </head>
 
@@ -96,8 +97,8 @@
                             <li><a href="./services.html">Services</a></li>
                             <li class="active"><a href="#">Consultation</a>
                                 <ul class="dropdown">
-                                    <li><a href="{{ path('interventions') }}">Liste Des Interventions</a></li>
-                                    <li><a href="{{ path('consultermedecin') }}">Liste Des Medecins</a></li>
+                                    <li><a href="{{ path('inter') }}">Liste Des Interventions</a></li>
+                                    <li><a href="{{ path('med') }}">Liste Des Medecins</a></li>
 
 
                                 </ul>
@@ -120,7 +121,7 @@
 <!-- Header Section End -->
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-option spad set-bg" data-setbg="img/breadcrumb-bg.jpg">
+<section class="breadcrumb-option spad set-bg" data-setbg="{{ asset('img/breadcrumb-bg.jpg') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -128,6 +129,7 @@
                     <h2>Nos Interventions</h2>
 
                 </div>
+
             </div>
         </div>
     </div>
@@ -135,44 +137,79 @@
 <!-- Breadcrumb Section End -->
 
 <!-- Pricing Section Begin -->
-<section class="pricing spad">
 
-    <div class="container">
+<section class="hero spad set-bg"data-setbg="{{ asset('img/hero-bg.jpg') }}">
 
-        <div class="row">
+
+    <div class="container" >
+
+        <div id="myDIV"  class="row"   >
+            <div class="col-md-3" >
+                {% include 'intervention/_filter.html.twig' with {form: form} only  %}
+            </div>
+
 
             {%for op in listintervention %}
 
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="pricing__item">
+                <div id="divselected" class="col-lg-4 col-md-6 col-sm-6" >
+                    <div class="pricing__item" >
                         <div class="pricing__item__title">
-                            <p>{{ op.nom |upper}}</p>
-                            <h3>Dr. {{ op.medecin}} <span>Plastic surgeon</span></h3>
-                        </div>
+                            <p>{{ op.specialite |upper}}</p>
+                          </div>
                         <ul>
                             <li>
                                 <h6>DESCRIPTION:</h6>
-                               <span>{{ op.type }} </span>
-                                <h6>DUREE:</h6>
-                              <span>{{ op.duree|date('h:i')}}H</span>
-                                <h6>TARIF:</h6>
-                                <span>{{ op.tarif }}$</span>
+                               <span>{{ op.description }} </span>
+
 
                             </li>
 
                         </ul>
-                        <a href="#" class="primary-btn">SELECT</a>
+                        <a href="{{ asset('/voirinter/'~op.specialite.getId) }}" class="primary-btn">SELECT</a>
+
                     </div>
 
                 </div>
 
             {% endfor %}
 
+
+
         </div>
 
     </div>
 
+
 </section>
+<script>
+    $(document).ready(function(){
+        $('#search').keyup(function(){
+            search_table($(this).val());
+        });
+        function search_table(value){
+            $('#myDIV #divselected  ').each(function(){
+                var found = 'false';
+                $(this).each(function(){
+                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                    {
+                        found = 'true';
+                    }
+                });
+
+                if(found == 'true')
+                {
+                    $(this).show();
+
+                }
+                else
+                {
+                    $(this).hide();
+
+                }
+            });
+        }
+    });
+</script>
 
 <footer class="footer">
     <div class="footer__top">

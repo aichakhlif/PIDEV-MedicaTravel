@@ -1,50 +1,118 @@
+{% extends'base.html.twig' %}
 
-{% extends 'base.html.twig' %}
+
+
 {% block body %}
+
+
+    <body>
+
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Table</a></li>
+                        <li class="active">Data table</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="donutchart" style="width: 90%; height: 500px; margin-left: 60px"></div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'year');
+            data.addColumn('number', 'quantité');
+            data.addRows([
+                {%for op in stat %}
+                ['{{ op.titre }}', {{ op.nb }}],
+                {% endfor %}
+            ]);
+
+            var options = {
+                title: 'Nombre de médecins par Spécialité',
+                pieHole: 0.3
+            };
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
+    </script>
+
     <div class="content mt-3">
-    <div class="animated fadeIn">
-    <div class="row">
+        <div class="animated fadeIn">
+            <div class="row">
 
-    <div class="col-md-12">
-    <div class="card">
-    <div class="card-header">
-        <strong class="card-title">Table des Interventions</strong>
-    </div>
-    <div class="card-body">
-    <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <tr><td><a href="{{ path('listimprimer') }}"><button type="button" class="btn btn-outline-primary" data-dismiss="modal">Imprimer
+                                        </button></a></td></tr>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Specialite</td>
+                                    <td>Description</td>
+                                    <td>Liste des Docteurs</td>
+                                    <td></td>
+                                    <td></td>
 
-    <tr>
-        <td>ID</td>
-        <td>TYPE</td>
-        <td>NOM</td>
-        <td>DURATION</td>
-        <td>TARIF</td>
-        <td>DOCTOR</td>
-        <td></td>
-        <td></td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {%for op in listintervention %}
+                                    <tr>
+                                        <td>{{ op.id }}</td>
+                                        <td>{{ op.specialite}}</td>
+                                        <td>{{ op.description}}</td>
+                                        <td>
+                                            {% set table = op.specialite.getMedecins %}
+                                            {% for medecin in table  %}
+                                            {{ medecin.getNom ~ " " ~ medecin.getPrenom }} -
+                                            {% endfor %}
+                                        </td>
+                                        <td><a href="{{ path('deleteOP' ,{'id':op.id})}}" >Supprimer</a></td>
+                                        <td><a href="{{ path('updateOP' ,{'id':op.id})}}" >Modifier</a></td>
 
-    </tr>
-    {%for op in listintervention %}
-        <tr>
-            <td>{{ op.id }}</td>
-            <td>{{ op.type }}</td>
-            <td>{{ op.nom }}</td>
-            <td>{{ op.duree|date('h:i')}}H</td>
-            <td>{{ op.tarif }}$</td>
-            <td>{{ op.medecin}}</td>
-            <td><a href="{{ path('deleteOP' ,{'id':op.id})}}" >Supprimer</a></td>
-            <td><a href="{{ path('updateOP' ,{'id':op.id})}}" >Modifier</a></td>
+                                    </tr>
 
-        </tr>
-
-    {% endfor %}
-    </table>
-    </div>
-    </div>
-    </div>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
 
-    </div>
-    </div><!-- .animated -->
-    </div>
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+
+
+    <!-- Right Panel -->
+
+
+
+    </body>
+
+    </html>
+
 {% endblock %}

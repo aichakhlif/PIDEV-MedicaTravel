@@ -1,8 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3f6776f7-f80f-49fc-911f-3b544e7eac79" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210311161823.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210311163142.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/04b617aa4ddc8289fb54507a730b8d75.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/07d1b48074acdf57f765329b8f58cd21.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/0a83eecde5d49dc37ef496cc07c08040.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/136f425426e180c5949281a4aaade79e.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/1604ce69eb29781ef164e25f92a83be8.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/175ea36f850fb88cf19bc63c5213071e.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/1ae6689aaa96f49dc1af6c75fbde57cc.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/1d45e97a269823a9eebc95aafee99eb6.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/20adff7f3a74897546b8a353de501eea.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/312d46005e56550cd2033cde192153d9.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/39090c5e8502aeab1ce9544daada22df.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/445e58fe3dc7c3a9cf38fef8d787479a.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/48040afba60a2b39fa2656a4f5dac301.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/4cd94c36150bf7d83cd01dc08b011238.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/539d828617653bd102779875b9e3ec3e.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/5444f58346c91db0b6c136a31c18b643.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/5473e4168483cfa265f54999858a0d24.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/5d0c8a8380810d1d3542ed4629605a69.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/6d0c2ed090297c755d17f3f2884f8b09.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/8483963e38deb5fecec55be844f97840.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/9b3f511b3253038674dd78136c5b3876.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/a81c1c9ac5414c75dc076e32d2fc4e3d.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/b5c283cc285f863539e3fac2639aa3a0.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/be17c7d2f2661f0696a07d6e6288f98d.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/d18c5d5a05e604d446925d253d4366ac.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/d95069c1538b98040a9fa8f1d269fe97.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/da01afd82940b47b3406f0d959872b52.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/dee4ae965def82e9c31dea4960c7a84c.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/default.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/Uploads/Image/ea69f4ee4768f89a698ec87090255ec8.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/style1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/seins.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/SpecialiteController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Data/SearchData.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Data/SearchDataMed.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/Specialite.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/ContactType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/RechercheForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/SearchForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Specialite1Type.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/SpecialiteRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/contac/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/email/contact.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/intervention/_filter.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/medecin/_filter_medecin.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/medecin/listemedecinFront.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/specialite/_delete_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/specialite/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/specialite/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/specialite/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/specialite/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/specialite/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/projetPI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projetPI.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InterventionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InterventionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MedecinController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MedecinController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Intervention.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Intervention.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Medecin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Medecin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/InterventionFType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/InterventionFType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/MedecinFType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MedecinFType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/InterventionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/InterventionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MedecinRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MedecinRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/intervention/addINTER.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/intervention/addINTER.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/intervention/consulterIntervention.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/intervention/consulterIntervention.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/intervention/imprimer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/intervention/imprimer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/intervention/listintervention.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/intervention/listintervention.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/medecin/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medecin/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/medecin/addspec.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medecin/addspec.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/medecin/consultermedecinFront.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medecin/consultermedecinFront.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/medecin/listemedecin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/medecin/listemedecin.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +219,24 @@
       <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
       <path value="$PROJECT_DIR$/vendor/symfony/intl" />
       <path value="$PROJECT_DIR$/vendor/symfony/web-server-bundle" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/vendor/phenx/php-font-lib" />
+      <path value="$PROJECT_DIR$/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/vendor/hautelook/alice-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/theofidry/alice-data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/alice" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
     </include_path>
   </component>
   <component name="ProjectId" id="1p7pvR2ncxrR0pK8zLODtlzwTLB" />
@@ -130,18 +248,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mydir" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/images" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\projetPI\public\img\doctor" />
-      <recent name="C:\wamp64\www\projetPI\public\img\avatars" />
-      <recent name="C:\wamp64\www\projetPI\public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\projetPI\public\img\doctor" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\projetPI\public\images" />
+      <recent name="C:\wamp64\www\projetPI\public\assets\js" />
+      <recent name="C:\wamp64\www\projetPI\public" />
+      <recent name="C:\wamp64\www\projetPI\public\img\doctor" />
+      <recent name="C:\wamp64\www\projetPI\public\img\avatars" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -158,25 +279,79 @@
       <workItem from="1614717759111" duration="29245000" />
       <workItem from="1614864676916" duration="29191000" />
       <workItem from="1614939956643" duration="1360000" />
+      <workItem from="1614949677845" duration="2134000" />
+      <workItem from="1615156167001" duration="3427000" />
+      <workItem from="1615240072721" duration="13508000" />
+      <workItem from="1615291349511" duration="17307000" />
+      <workItem from="1615370410650" duration="63545000" />
+      <workItem from="1615552386204" duration="1378000" />
+      <workItem from="1615578753577" duration="1314000" />
+      <workItem from="1616014124382" duration="2446000" />
+      <workItem from="1616100435846" duration="4596000" />
+      <workItem from="1616188457953" duration="13704000" />
+      <workItem from="1616366800341" duration="7822000" />
+      <workItem from="1616413179695" duration="1463000" />
+      <workItem from="1616449486891" duration="6837000" />
+      <workItem from="1616494725153" duration="3497000" />
+      <workItem from="1616537265558" duration="10213000" />
+      <workItem from="1616709202527" duration="17592000" />
+      <workItem from="1616965862985" duration="8784000" />
+      <workItem from="1616979407209" duration="2964000" />
+      <workItem from="1617022845217" duration="13956000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="542" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614601826432">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="542" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1614601826432" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614889374155">
+    <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser" timestamp="1615478211221">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1614889374155" />
+    <state x="574" y="94" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1615478211221" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616794144082">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1616794144082" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1614910154710">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1614910154710" />
+    <state x="595" y="135" key="NewPhpClassDialog" timestamp="1616794123388">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="595" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1616794123388" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1616548077598">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1616548077598" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615498564594">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1615498564594" />
+    <state x="1064" y="0" width="478" height="830" key="dock-window-1" timestamp="1615513390345">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="1064" y="0" width="478" height="830" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1615513390345" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1614890144170">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

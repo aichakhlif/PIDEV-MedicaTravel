@@ -22,95 +22,52 @@ class Intervention
      * @ORM\Column(type="text")
      * @Assert\NotBlank()
      */
-    private $type;
+    private $description;
+
 
     /**
-     * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank()
-     */
-    private $nom;
-
-    /**
-     * @ORM\Column(type="time")
-     * @Assert\NotBlank()
-     */
-    private $duree;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Medecin::class, inversedBy="interventions")
+     * @ORM\OneToOne(targetEntity=Specialite::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotBlank()
      */
-    private $medecin;
+    private $Specialite;
 
-    /**
-     * @ORM\Column(type="float")
-     * @Assert\NotBlank()
-     */
-    private $tarif;
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getType(): ?string
+    public function getDescription(): ?string
     {
-        return $this->type;
+        return $this->description;
     }
 
-    public function setType(string $type): self
+    public function setDescription(string $Description): self
     {
-        $this->type = $type;
+        $this->description = $Description;
 
         return $this;
     }
 
-    public function getNom(): ?string
+
+    public function getSpecialite(): ?Specialite
     {
-        return $this->nom;
+        return $this->Specialite;
     }
 
-    public function setNom(string $nom): self
+    public function setSpecialite(Specialite $Specialite): self
     {
-        $this->nom = $nom;
+        $this->Specialite = $Specialite;
 
         return $this;
     }
 
-    public function getDuree(): ?\DateTimeInterface
-    {
-        return $this->duree;
-    }
 
-    public function setDuree(\DateTimeInterface $duree): self
-    {
-        $this->duree = $duree;
 
-        return $this;
-    }
 
-    public function getMedecin(): ?medecin
-    {
-        return $this->medecin;
-    }
 
-    public function setMedecin(?medecin $medecin): self
-    {
-        $this->medecin = $medecin;
 
-        return $this;
-    }
 
-    public function getTarif(): ?float
-    {
-        return $this->tarif;
-    }
-
-    public function setTarif(float $tarif): self
-    {
-        $this->tarif = $tarif;
-
-        return $this;
-    }
 }

@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<body>
+
+<div class="breadcrumbs">
+    <div class="col-sm-4">
+        <div class="page-header float-left">
+            <div class="page-title">
+                <h1>Dashboard</h1>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8">
+        <div class="page-header float-right">
+            <div class="page-title">
+                <ol class="breadcrumb text-right">
+                    <li><a href="#">Dashboard</a></li>
+
+                    <li><a href="#">Table</a></li>
+                    <li class="active">Data table</li>
+
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Data Table</strong>
+                    </div>
+                    <br>
+                    <div class="header-left">
+
+
+                    </div>
+                    <div class="card-body">
+
+                        <table id="tableac" class="table table-striped table-bordered">
+                            <script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
+                            <input id="search" class="form-control mr-sm-2" type="text" name="search" placeholder="Search ..." aria-label="Search"  >
+                            <thead>
+                            <tr>
+                                <td> ID </td>
+                                <td>Nom De La Specialité</td>
+                                <td>ACTION</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            {% for specialite in specialites %}
+            <tr>
+                <td>{{ specialite.id }}</td>
+                <td>{{ specialite.titre }}</td>
+                <td>
+                    <a href="{{ path('specialite_show', {'id': specialite.id}) }}">show</a>
+                    <a href="{{ path('specialite_edit', {'id': specialite.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+                            <script>
+                                $(document).ready(function(){
+                                    $('#search').keyup(function(){
+                                        search_table($(this).val());
+                                    });
+                                    function search_table(value){
+                                        $('#tableac tbody tr ').each(function(){
+                                            var found = 'false';
+                                            $(this).each(function(){
+                                                if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                                {
+                                                    found = 'true';
+                                                }
+                                            });
+
+                                            if(found == 'true')
+                                            {
+                                                $(this).show();
+
+                                            }
+                                            else
+                                            {
+                                                $(this).hide();
+
+                                            }
+                                        });
+                                    }
+                                });
+                            </script>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('specialite_new') }}">Create new</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+
+
+<!-- Right Panel -->
+
+
+
+</body>
+
+
+{% endblock %}

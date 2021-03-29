@@ -2,9 +2,11 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\Intervention;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
  * @method Intervention|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +49,35 @@ class InterventionRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findSearch(SearchData $search)
+    {
+
+        $query = $this
+            ->createQueryBuilder('i')
+            ->select('s', 'i')
+            ->join('i.Specialite', 's');
+
+        if (!empty($search->q)) {
+            $query = $query
+                ->andWhere('i.description LIKE :q')
+                ->setParameter('q', "%{$search->q}%");
+        }
+
+
+
+
+
+
+        if (!empty($search->Specialite)) {
+            $query = $query
+                ->andWhere('s.id IN (:specialite)')
+                ->setParameter('specialite', $search->Specialite);
+        }
+
+        return
+            $query->getQuery()->getResult()
+
+
+        ;
+    }
 }

@@ -8,9 +8,11 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\String_;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=MedecinRepository::class)
+ * @UniqueEntity("email")
  */
 class Medecin
 {
@@ -34,7 +36,7 @@ class Medecin
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50,unique=true)
      * @Assert\NotBlank()
      * @Assert\Email()
      */
@@ -52,25 +54,25 @@ class Medecin
      */
     private $num;
 
-    /**
-     * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank()
-     */
-    private $specialite;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Intervention::class, mappedBy="medecin", orphanRemoval=true)
-     */
-    private $interventions;
+
+
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $pic;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Specialite::class, inversedBy="Medecins")
+     */
+    private $Specialite;
+
+
+
     public function __construct()
     {
-        $this->interventions = new ArrayCollection();
+        $this->Specialite = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,61 +128,49 @@ class Medecin
         return $this;
     }
 
-    public function getSpecialite(): ?string
-    {
-        return $this->specialite;
-    }
 
-    public function setSpecialite(string $specialite): self
-    {
-        $this->specialite = $specialite;
 
-        return $this;
-    }
 
-    /**
-     * @return Collection|Intervention[]
-     */
-    public function getInterventions(): Collection
-    {
-        return $this->interventions;
-    }
-
-    public function addIntervention(Intervention $intervention): self
-    {
-        if (!$this->interventions->contains($intervention)) {
-            $this->interventions[] = $intervention;
-            $intervention->setMedecin($this);
-        }
-
-        return $this;
-    }
-
-    public function removeIntervention(Intervention $intervention): self
-    {
-        if ($this->interventions->removeElement($intervention)) {
-            // set the owning side to null (unless already changed)
-            if ($intervention->getMedecin() === $this) {
-                $intervention->setMedecin(null);
-            }
-        }
-
-        return $this;
-    }
     public function __toString():String
     {
         return $this->getNom()." ".$this->getPrenom() ;
     }
 
-    public function getPic(): ?string
+    public function getPic()
     {
         return $this->pic;
     }
 
-    public function setPic(string $pic): self
+    public function setPic( $pic)
     {
         $this->pic = $pic;
 
         return $this;
     }
+
+    /**
+     * @return Collection|Specialite[]
+     */
+    public function getSpecialite(): Collection
+    {
+        return $this->Specialite;
+    }
+
+    public function addSpecialite(Specialite $Specialite): self
+    {
+        if (!$this->Specialite->contains($Specialite)) {
+            $this->Specialite[] = $Specialite;
+        }
+
+        return $this;
+    }
+
+    public function removeSpecialite(Specialite $Specialite): self
+    {
+        $this->Specialite->removeElement($Specialite);
+
+        return $this;
+    }
+
+
 }

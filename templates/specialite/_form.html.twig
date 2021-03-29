@@ -1,0 +1,41 @@
+<br>
+<br>
+<br>
+<div class="col-md-9 col-xl-10">
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="account" role="tabpanel">
+
+            <div class="card">
+                <div class="card-header">
+
+                    <h5 class="card-title mb-0">Specialité</h5>
+                </div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                            {{ form_start(form,{'attr':{'novalidate' : 'novalidate'}} ) }}
+
+                                {{ form_widget(form) }}
+
+                                <div>
+                                    <button class="btn">{{ button_label|default('Save') }}</button>
+
+                                </div>
+{{ form_end(form) }}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <a href="{{ path('specialite_index') }}">back to list</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

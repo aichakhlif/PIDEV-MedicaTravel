@@ -3,12 +3,16 @@
 namespace App\Form;
 
 use App\Entity\Intervention;
+use App\Entity\Specialite;
 use DateTime;
 use Doctrine\DBAL\Types\FloatType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,33 +24,29 @@ class InterventionFType extends AbstractType
     {
         $builder
 
-            ->add('type',TextType::class,[
+            ->add('description',TextareaType::class,[
                 'attr'=> [
                     'class'=>'form-control',
-                    'placeholder'=>'Type'
+                    'placeholder'=>'description'
                 ]
-            ])
-            ->add('nom',TextType::class,[
-                'attr'=> [
-                    'class'=>'form-control',
-                    'placeholder'=>'Nom'
-                ]
-            ])
-            ->add('duree',TimeType::class,[
-                'attr'=>[
-                    'class'=>'btn btn-primary dropdown-toggle','widget' => 'choice',
-                    'input'  => 'datetime_immutable']
             ])
 
-            ->add('tarif',IntegerType::class,[
+
+            ->add('Specialite',EntityType::class,[
+                'class' => Specialite::class,
+                'multiple'=>false,
                 'attr'=> [
                     'class'=>'form-control',
-                    'placeholder'=>'tarif'
-                ]])
-            ->add('medecin')
+                    'placeholder'=>'Specilité'
+                ]
+            ])
 
 
             ->add('Envoyer', SubmitType::class,[
+                'attr'=> [
+                    'class'=>'btn btn-primary'
+                ]])
+            ->add('Annuler', ResetType::class,[
                 'attr'=> [
                     'class'=>'btn btn-primary'
                 ]])

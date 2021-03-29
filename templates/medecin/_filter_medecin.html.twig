@@ -1,0 +1,9 @@
+{{ form_start(Medform,{attr: {class: 'filter'}}) }}
+{{ form_row(Medform.q) }}
+<h4>Specialité</h4>
+{{ form_row(Medform.Specialite) }}
+
+<button type="submit" class="btn btn-primary w-100">
+    filtrer
+</button>
+{{ form_end(Medform) }}
