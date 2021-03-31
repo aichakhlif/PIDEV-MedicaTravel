@@ -8,13 +8,17 @@ use App\Entity\ReservationOffre;
 
 use App\Form\ReservationformType;
 use App\Form\ReservationType;
+use App\Repository\OffreRepository;
 use App\Repository\ReservationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+
 
 class ReservationoffreController extends AbstractController
 {
@@ -25,9 +29,9 @@ class ReservationoffreController extends AbstractController
     {
         return $this->render('reservationoffre/index.html.twig', [
             'controller_name' => 'ReservationoffreController',
+
         ]);
     }
-
     /**
      * @Route("/listResOffre", name="listResOffre")
      */
@@ -69,22 +73,28 @@ class ReservationoffreController extends AbstractController
     } */
 
     /**
-     * @Route("/newresof", name="of")
+     * @Route("/newresof/{id}", name="of")
 */
-    public function reserveroffre(Request $request)
+    public function reserveroffre(Request $request,$id)
     {
-    $res= new ReservationOffre();
-    $form= $this->createForm(ReservationformType::class,$res);
+      //  $pp= $this->getDoctrine()->getRepository(Offre::class)->find($id);
 
+       $offre = $this->getDoctrine()->getRepository(Offre::class)->find($id);
+    $res= new ReservationOffre();
+    $res->setOffre($offre);
+    $form= $this->createForm(ReservationformType::class,$res);
     $form->add("Book appoitment",SubmitType::class,['attr'=>[
     'class'=>"site-btn"
     ]]);
+
     $em=$this->getDoctrine()->getManager();
 
     $form->handleRequest($request);
 
     if($form->isSubmitted() && $form->isValid())
     {
+
+
     $em->persist($res);
 
     $em->flush();

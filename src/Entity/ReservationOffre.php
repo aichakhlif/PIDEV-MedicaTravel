@@ -29,14 +29,6 @@ class ReservationOffre
      */
     private $nom;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     *      *      * @Assert\NotBlank(message="Ce champs est obligatoire")
-     * * @Assert\Length(min=3,max=30)
-
-
-     */
-    private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -47,21 +39,6 @@ class ReservationOffre
      */
     private $email;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     *      *      * @Assert\NotBlank(message="Ce champs est obligatoire")
-     * * @Assert\Length(min=3,max=30)
-
-     */
-    private $date_n;
-
-    /**
-     * @ORM\Column(type="integer")
-     *      *      * @Assert\NotBlank(message="Ce champs est obligatoire")
-     * * @Assert\Length(min=3,max=30)
-
-     */
-    private $tel;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -95,17 +72,8 @@ class ReservationOffre
         return $this;
     }
 
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
 
-    public function setPrenom(string $prenom): self
-    {
-        $this->prenom = $prenom;
 
-        return $this;
-    }
 
     public function getEmail(): ?string
     {
@@ -119,29 +87,6 @@ class ReservationOffre
         return $this;
     }
 
-    public function getDateN(): ?string
-    {
-        return $this->date_n;
-    }
-
-    public function setDateN(string $date_n): self
-    {
-        $this->date_n = $date_n;
-
-        return $this;
-    }
-
-    public function getTel(): ?int
-    {
-        return $this->tel;
-    }
-
-    public function setTel(int $tel): self
-    {
-        $this->tel = $tel;
-
-        return $this;
-    }
 
     public function getPays(): ?string
     {

@@ -1,0 +1,112 @@
+{% extends'back.html.twig' %}
+
+
+
+{% block body %}
+
+
+    <body>
+    <!-- Left Panel -->
+
+    <!-- /#left-panel -->
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+
+    <!-- Header-->
+    <!-- /header -->
+    <!-- Header-->
+
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Table</a></li>
+                        <li class="active">Data table</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+
+
+                                    <th style="width:10%;">Reference</th>
+                                    <th style="width:10%;">nom Fichier</th>
+
+
+
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for dos in dos %}
+                                    <tr>
+
+                                        <td>{{ dos.reference}}</td>
+                                        <td>
+                                            <img src=" {{ asset('Uploads/Image/' ~ dos.fichier) }}" height="200" width="800" > </td>
+                                        <td>
+                                            {% if dos.etat ==null %}
+                                                <a href="{{ path('accepter', {'id': dos.id}) }}">confirmer</a>
+                                                <a href="{{ path('delete_dossier', {'id': dos.id}) }}">supprimer</a>
+                                            {% elseif dos.etat == 1 %}
+                                                <p class="text-success">confirmé</p>
+
+                                            {% endif %}
+                                        </td>
+
+
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+
+
+
+
+
+
+    <!-- Right Panel -->
+
+
+
+    </body>
+
+    </html>
+
+{% endblock %}

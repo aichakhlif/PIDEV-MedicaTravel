@@ -36,12 +36,12 @@
 <!-- Offcanvas Menu Begin -->
 <div class="offcanvas-menu-overlay"></div>
 <div class="offcanvas-menu-wrapper">
-<div class="offcanvas__logo">
+    <div class="offcanvas__logo">
         <a href="./index.html"><img src="img/logo.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__btn">
-      <a href="#" class="primary-btn">Appointment</a>
+        <a href="#" class="primary-btn">Appointment</a>
     </div>
     <ul class="offcanvas__widget">
         <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
@@ -84,7 +84,7 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="header__logo">
-                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                    <h4>MEDICATRAVEL</h4>
                 </div>
             </div>
             <div class="col-lg-10">
@@ -92,23 +92,27 @@
                 <div class="header__menu__option">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="{{ path('reservation') }}">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="./services.html">Services</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./pricing.html">Pricing</a></li>
-                                    <li><a href="./doctor.html">Doctor</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">News</a></li>
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="{{ path('inter') }}">Intervention</a></li>
+                            <li><a href="{{ path('med') }}"> Medecins</a></li>
+                            <li><a href="{{ path('listoffre1') }}">Offres</a></li>
+                            <li><a href="{{ path('liste1') }}">clinique</a></li>
+
+                            <li><a href="{{ path('blog') }}">Blog</a></li>
+
+                            {% if app.user != null %}
+                                <li><a  href="{{ path('AfficherC') }}">ESPACE CLIENT</a></li>
+
+                                <li><a  href="{{ path('app_logout') }}">Logout</a></li>
+
+                            {% endif %}
+                            {% if app.user == null %}
+                                <li><a  href="{{ path('app_login') }}">Login</a></li>
+                                <li><a  href="{{ path('registration') }}">Register</a></li>
+                            {% endif %}
                         </ul>
                     </nav>
-                    <div class="header__btn">
-                        <a  href="{{ path('new') }}" class="primary-btn">Appointment</a>
-                    </div>
+
                 </div>
             </div>
         </div>

@@ -47,4 +47,40 @@ class CliniqueRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function SearchName($data)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.nom LIKE  :data')
+            ->orWhere('c.adresse LIKE  :data ')
+            ->orWhere('c.tel LIKE  :data ')
+
+
+            ->setParameter('data', '%'.$data.'%')
+            ->getQuery()->getResult()
+            ;
+    }
+    public function categorie()
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.specialite LIKE  :data')
+            ->setParameter('data', '%visage%')
+            ->getQuery()->getResult()
+            ;
+    }
+    public function categorie1()
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.specialite LIKE  :data')
+            ->setParameter('data', '%poitrine%')
+            ->getQuery()->getResult()
+            ;
+    }
+    public function categorie2()
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.specialite LIKE  :data')
+            ->setParameter('data', '%fesses%')
+            ->getQuery()->getResult()
+            ;
+    }
 }

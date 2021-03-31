@@ -1,0 +1,134 @@
+{% extends'back.html.twig' %}
+
+
+
+{% block body %}
+
+
+    <body>
+    <!-- Left Panel -->
+
+    <!-- /#left-panel -->
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+
+    <!-- Header-->
+    <!-- /header -->
+    <!-- Header-->
+
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Table</a></li>
+                        <li class="active">Data table</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th style="width:10%;">id</th>
+
+                                    <th style="width:10%;">Nom</th>
+
+
+                                    <th style="width:10%">Email</th>
+
+                                    <th style="width:10%">pays</th>
+                                    <!--  <th style="width:10%">medecin</th>!-->
+                                    <th style="width:10%">type intervention</th>
+                                    <th style="width:10%">clinique</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for res in res %}
+                                    <tr>
+                                        <td>{{ res.id }}</td>
+                                        <td>{{ res.nom}}</td>
+
+                                        <td>{{ res.email}}</td>
+
+                                        <td>{{ res.pays}}</td>
+                                        <!--  <td> res.medecin}}</td> !-->
+                                        <td>{{ res.intervention }}</td>
+                                        <td>{{ res.clinique}}</td>
+
+                                        <td><a class="site-btn " href="#">contacter</a>
+
+
+                                    </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+    <!-- .contact -->
+    <div class="col-md-12">
+    <div class="card">
+    <div class="card-header">
+        <strong class="card-title">contact patient</strong>
+    </div>
+    <div class="card-body">
+
+
+
+    {{ form_start(our_form,{'attr':{'novalidate' : 'novalidate'}}) }}
+<br>
+    {{ form_label(our_form.nom,"Nom : ") }}
+    {{ form_widget(our_form.nom)}}
+    {{ form_errors(our_form.nom)}}
+<br>
+    {{ form_label(our_form.email,"email : ") }}
+    {{ form_widget(our_form.email)}}
+    {{ form_errors(our_form.email)}}
+<br>
+
+
+
+    {{ form_end(our_form) }}
+    <!-- Right Panel -->
+
+    </div>
+    </div>
+    </div>
+
+
+    </body>
+
+    </html>
+
+{% endblock %}

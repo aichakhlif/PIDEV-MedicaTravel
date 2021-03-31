@@ -1,0 +1,45 @@
+{% extends 'Back.html.twig' %}
+
+{% block body %}
+    <main class="content">
+        <div class="container-fluid p-0">
+
+            <h1 class="h3 mb-3">Form Layouts</h1>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Ajouter Catégorie</h5>
+
+                    </div>
+                    <div class="card-body">
+                        {{ form_start(formCat) }}
+                        {{ form_errors(formCat) }}
+
+
+
+
+
+                        <form>
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    {{ form_row(formCat.Nom) }}
+                                </div>
+
+
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary">{% if editMode %}Enregistrer{% else %}Ajouter{% endif %}</button>
+                            {{ form_end(formCat) }}
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </main>
+
+{% endblock %}

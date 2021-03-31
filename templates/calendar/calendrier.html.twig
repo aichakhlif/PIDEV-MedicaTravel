@@ -1,0 +1,120 @@
+{% extends'back.html.twig' %}
+
+
+
+{% block body %}
+
+
+    <body>
+    <!-- Left Panel -->
+
+    <!-- /#left-panel -->
+
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+
+
+    <!-- Header-->
+    <!-- /header -->
+    <!-- Header-->
+
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Table</a></li>
+                        <li class="active">Data table</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+
+                                    <th>Title</th>
+                                    <th>Start</th>
+                                    <th>End</th>
+                                    <th>Description</th>
+                                    <th>All_day</th>
+                                </tr>
+                                </thead>
+                                <tbody id="all">
+
+                                {% for calendar in calendars %}
+                                <tr>
+
+                                    <td>{{ calendar.title }}</td>
+                                    <td>{{ calendar.start ? calendar.start|date('Y-m-d H:i:s') : '' }}</td>
+                                    <td>{{ calendar.end ? calendar.end|date('Y-m-d H:i:s') : '' }}</td>
+                                    <td>{{ calendar.description }}</td>
+                                    <td>{{ calendar.allDay ? 'Yes' : 'No' }}</td>
+
+                                    <td>
+                                        {% if calendar.etat ==null %}
+                                        <a href="{{ path('accept', {'id': calendar.id}) }}">confirmer</a>
+                                        <a href="{{ path('delete_calendar', {'id': calendar.id}) }}">supprimer</a>
+                                        {% elseif calendar.etat == 1 %}
+                                        <p class="text-success">confirmé</p>
+
+                                        {% endif %}
+                                    </td>
+                                </tr>
+
+                                {% else %}
+
+                                <tr>
+                                    <td colspan="10">no records found</td>
+                                </tr>
+
+
+
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+
+
+
+
+
+
+    <!-- Right Panel -->
+
+
+
+    </body>
+
+    </html>
+
+{% endblock %}

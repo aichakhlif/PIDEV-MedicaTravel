@@ -1,0 +1,208 @@
+{% extends 'Front.html.twig' %}
+
+
+{% block body %}
+
+
+    <!-- Blog Details Section Begin -->
+    <section class="blog-details spad">
+        <div   >
+            <img src="img\blog\{{ article.Image }}" alt="">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-7 text-center">
+                    <div class="blog__hero__text">
+
+                        <img src="img\blog\{{ article.Image }}" alt="">
+                        <h2 style="color: #0c5d69">{{ article.Titre}}</h2>
+                        <ul>
+                            <li style="color: #0d152a">{{ article.Auteur }}</li>
+                            <li style="color: #1a3a95">{{ article.Date | date('d/m/Y') }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="img\blog\{{ article.Image }}" alt="">
+
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                <div class="blog__details__social">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Finvalid.invalid%2F&amp;src=sdkpreparse" target="_blank"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+
+                </div>
+                <div class="blog__details__text">
+
+
+                    <div class="blog__details__text__item">
+
+                        <p>{{ article.Contenu }}
+                        </p>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-8" style="padding-top: 50px; padding-bottom: 50px;">
+                <div class="blog__details__related">
+                    <div class="d-flex row">
+                        <div class="d-flex flex-column col-md-8">
+                            <div class="coment-bottom bg-white p-2 px-4">
+                                <h4 style="color: #0c5d69;">Commentaires</h4>
+                                {{ form_start(form)}}
+                                <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+                                    {{ form_row(form.content,{'attr': {'class': 'form-control mr-5' , 'placeholder' : 'Add Comment' , 'cols' : '50','required' : 'true', 'style' : 'resize: none;'}}) }}
+                                    <input type="submit" class="btn btn-primary ml-auto" style="background-color: #0c5d69; border: #0c5d69;" value="Commenter"/>
+                                </div>
+                                {{ form_end(form) }}
+
+                                {% for comment in comments %}
+                                    <div class="commented-section mt-2 mb-2">
+                                        <div class="d-flex flex-row align-items-center commented-user">
+                                            <h5 class="mr-auto mb-2" style="color: #0c5d69; font-weight: bold;">{{ comment.author }}</h5>
+                                            <i class="fa fa-history mb-2" style="color: #0c5d69;"></i>
+                                            <span class="ml-2 mb-2">{{ comment.createdAt|date('d/m/Y') }} at {{ comment.createdAt|date('H:i') }} </span>
+
+                                        </div>
+                                        <div class="comment-text-sm">
+                                            <span>{{ comment.content }}</span>
+                                        </div>
+                                        {% if app.user and app.user.userName==comment.author %}
+                                            <div class="d-flex flex-row align-items-center commented-user">
+                                                <a href="{{ path('blog_uncomment' , {'id':article.id , 'idC': comment.id} )}}" class="ml-auto mb-4"><button class="btn btn-primary" style="background-color: #D43939; border: none;"><i class="fa fa-trash"></i></button></a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="blog__details__related">
+                    <h3>Derniers Articles</h3>
+                    <div class="row">
+                        {% for darticle in darticles %}
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="{{ asset('Uploads/Image/' ~ darticle.Image ) }}" alt="">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        <h5><a href="{{ path('blog_show' , {'id':darticle.id})}}">{{ darticle.Titre }}</a></h5>
+                                        <span>{{ darticle.Date|date('d/m/Y') }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer__logo">
+                            <a href="#"><img src="img/footer-logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-8">
+                        <div class="footer__newslatter">
+                            <form action="#">
+                                <input type="text" placeholder="Email">
+                                <button type="submit" ></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Company</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Departments</a></li>
+                            <li><a href="#">Find a Doctor</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">News</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6">
+                    <div class="footer__widget">
+                        <h5>Quick links</h5>
+                        <ul>
+                            <li><a href="#">Facial Fillers</a></li>
+                            <li><a href="#">Breast Surgery</a></li>
+                            <li><a href="#">Body Lifts</a></li>
+                            <li><a href="#">Face & Neck</a></li>
+                            <li><a href="#">Fat Reduction</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="footer__address">
+                        <h5>Contact Us</h5>
+                        <ul>
+                            <li><i class="fa fa-map-marker"></i> Los Angeles Gournadi, 1230 Bariasl</li>
+                            <li><i class="fa fa-phone"></i> 1-677-124-44227</li>
+                            <li><i class="fa fa-envelope"></i> Support@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-6">
+                    <div class="footer__map">
+                        <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48158.305462977965!2d-74.13283844036356!3d41.02757295168286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e440473470d7%3A0xcaf503ca2ee57958!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2sbd!4v1575917275626!5m2!1sen!2sbd"
+                                height="190" style="border:0" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                        </div>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="col-lg-5">
+                        <ul>
+                            <li>All Rights Reserved</li>
+                            <li>Terms & Use</li>
+                            <li>Privacy Policy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

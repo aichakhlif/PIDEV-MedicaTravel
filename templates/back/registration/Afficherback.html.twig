@@ -1,0 +1,80 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'year');
+            data.addColumn('number', 'quantité');
+            data.addRows([
+                {% for p in stat %}
+                ['{{ p.age }}', {{ p.nbu }}],
+                {% endfor %}
+            ]);
+
+            var options = {
+                title: 'statistique de la marge d\'age des patients',
+                is3D: true,
+            }
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+            chart.draw(data, options);
+
+        }
+    </script>
+
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div id="piechart_3d" style="width: 90%; height: 500px; margin-left: 60px"></div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="{{ path ('recherchemed') }}">
+                                <label>Rechercher</label>
+                                <input type="text" name="search"><input type="submit" value="Recherche">
+                            </form>
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+
+                                <tr>
+
+                                    <td> ID </td>
+                                    <td>Name</td>
+
+                                    <td>Age</td>
+                                    <td>Genre</td>
+                                    <td>Email</td>
+                                    <td>Pays</td>>
+
+                                </tr>
+                                {% for p in listuser %}
+
+                                <tr>
+                                    <td> {{p.id}}</td>
+                                    <td> {{p.name}}</td>
+                                    <td> {{p.age}}</td>
+                                    <td> {{p.genre}}</td>
+                                    <td> {{p.email}}</td>
+                                    <td> {{p.pays}}</td>
+
+                                    {% endfor %}
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+    <!--Load the AJAX API-->
+
+{% endblock %}

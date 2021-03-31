@@ -7,6 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 /**
  * @ORM\Entity(repositoryClass=InterventionRepository::class)
  */
@@ -22,91 +25,154 @@ class Intervention
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $nom;
+    private $type;
+
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
-    private $typeintervention;
+    private $description;
+
 
     /**
-     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="intervention", orphanRemoval=true)
+     * @ORM\OneToOne(targetEntity=Specialite::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $reservations;
+    private $Specialite;
 
 
+    /**
+     * @ORM\OneToMany(targetEntity=Reclamation::class, mappedBy="intervention")
+     */
+    private $reclamations;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity=Offre::class, mappedBy="intervention", orphanRemoval=true)
+     */
+    private $offres;
 
     public function __construct()
     {
-        $this->reservations = new ArrayCollection();
+        $this->reclamations = new ArrayCollection();
+        $this->offres = new ArrayCollection();
+
     }
+
+
+
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    public function getType(): ?string
     {
-        return $this->nom;
+        return $this->type;
     }
 
-    public function setNom(string $nom): self
+    public function setType(string $type): self
     {
-        $this->nom = $nom;
+        $this->type = $type;
 
         return $this;
     }
 
-    public function getTypeintervention(): ?string
+    public function getDescription(): ?string
     {
-        return $this->typeintervention;
+        return $this->description;
     }
 
-    public function setTypeintervention(string $typeintervention): self
+    public function setDescription(string $Description): self
     {
-        $this->typeintervention = $typeintervention;
+        $this->description = $Description;
 
         return $this;
     }
+
+
+    public function getSpecialite(): ?Specialite
+    {
+        return $this->Specialite;
+    }
+
+    public function setSpecialite(Specialite $Specialite): self
+    {
+        $this->Specialite = $Specialite;
+
+        return $this;
+    }
+
 
     /**
-     * @return Collection|Reservation[]
+     * @return Collection|Reclamation[]
      */
-    public function getReservations(): Collection
+    public function getReclamations(): Collection
     {
-        return $this->reservations;
+        return $this->reclamations;
     }
 
-    public function addReservation(Reservation $reservation): self
+    public function addReclamation(Reclamation $reclamation): self
     {
-        if (!$this->reservations->contains($reservation)) {
-            $this->reservations[] = $reservation;
-            $reservation->setIntervention($this);
+        if (!$this->reclamations->contains($reclamation)) {
+            $this->reclamations[] = $reclamation;
+            $reclamation->setIntervention($this);
         }
 
         return $this;
     }
 
-    public function removeReservation(Reservation $reservation): self
+    public function removeReclamation(Reclamation $reclamation): self
     {
-        if ($this->reservations->removeElement($reservation)) {
+        if ($this->reclamations->removeElement($reclamation)) {
             // set the owning side to null (unless already changed)
-            if ($reservation->getIntervention() === $this) {
-                $reservation->setIntervention(null);
+            if ($reclamation->getIntervention() === $this) {
+                $reclamation->setIntervention(null);
             }
         }
 
         return $this;
     }
 
-
-    //convertir un objet en string
-    function __toString()
+    /**
+     * @return Collection|Offre[]
+     */
+    public function getOffres(): Collection
     {
-        return(string)$this->getNom();
-
+        return $this->offres;
     }
+
+    public function addOffre(Offre $offre): self
+    {
+        if (!$this->offres->contains($offre)) {
+            $this->offres[] = $offre;
+            $offre->setIntervention($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffre(Offre $offre): self
+    {
+        if ($this->offres->removeElement($offre)) {
+            // set the owning side to null (unless already changed)
+            if ($offre->getIntervention() === $this) {
+                $offre->setIntervention(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString():String
+    {
+        return $this->type;
+    }
+
+
 
 
 }

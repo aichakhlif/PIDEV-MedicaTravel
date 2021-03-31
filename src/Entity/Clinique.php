@@ -6,6 +6,7 @@ use App\Repository\CliniqueRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CliniqueRepository::class)
@@ -21,18 +22,84 @@ class Clinique
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
-    private $nomclinique;
+    private $adresse;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank()
+     *@Assert\Length(
+     * min="8",
+     * max="8",
+     * minMessage="veuillez remplir de nouveau votre numéro de téléphone",
+     * maxMessage="veuillez remplir de nouveau votre numéro de téléphone",
+     * allowEmptyString="false ")
+     */
+    private $tel;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Offre::class, mappedBy="clinique", orphanRemoval=true)
+     */
+    private $offres;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $adresseclinique;
+    private $image;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity=Medecin::class, mappedBy="clinique", orphanRemoval=true)
      */
-    private $numtel;
+    private $medecin;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $specialite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
+
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getTel(): ?int
+    {
+        return $this->tel;
+    }
+
+    public function setTel(int $tel): self
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
 
     /**
      * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="clinique", orphanRemoval=true)
@@ -42,48 +109,11 @@ class Clinique
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->offres = new ArrayCollection();
+        $this->medecin = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
-    public function getNomclinique(): ?string
-    {
-        return $this->nomclinique;
-    }
-
-    public function setNomclinique(string $nomclinique): self
-    {
-        $this->nomclinique = $nomclinique;
-
-        return $this;
-    }
-
-    public function getAdresseclinique(): ?string
-    {
-        return $this->adresseclinique;
-    }
-
-    public function setAdresseclinique(string $adresseclinique): self
-    {
-        $this->adresseclinique = $adresseclinique;
-
-        return $this;
-    }
-
-    public function getNumtel(): ?int
-    {
-        return $this->numtel;
-    }
-
-    public function setNumtel(int $numtel): self
-    {
-        $this->numtel = $numtel;
-
-        return $this;
-    }
 
     /**
      * @return Collection|Reservation[]
@@ -118,7 +148,116 @@ class Clinique
     //convertir un objet en string
     function __toString()
     {
-        return(string)$this->getNomclinique();
+        return(string)$this->getNom();
 
+    }
+
+    /**
+     * @return Collection|Offre[]
+     */
+    public function getOffres(): Collection
+    {
+        return $this->offres;
+    }
+
+    public function addOffre(Offre $offre): self
+    {
+        if (!$this->offres->contains($offre)) {
+            $this->offres[] = $offre;
+            $offre->setClinique($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOffre(Offre $offre): self
+    {
+        if ($this->offres->removeElement($offre)) {
+            // set the owning side to null (unless already changed)
+            if ($offre->getClinique() === $this) {
+                $offre->setClinique(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|medecin[]
+     */
+    public function getMedecin(): Collection
+    {
+        return $this->medecin;
+    }
+
+    public function addMedecin(medecin $medecin): self
+    {
+        if (!$this->medecin->contains($medecin)) {
+            $this->medecin[] = $medecin;
+            $medecin->setClinique($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMedecin(medecin $medecin): self
+    {
+        if ($this->medecin->removeElement($medecin)) {
+            // set the owning side to null (unless already changed)
+            if ($medecin->getClinique() === $this) {
+                $medecin->setClinique(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSpecialite(): ?string
+    {
+        return $this->specialite;
+    }
+
+    public function setSpecialite(string $specialite): self
+    {
+        $this->specialite = $specialite;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
     }
 }

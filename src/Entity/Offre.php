@@ -6,6 +6,7 @@ use App\Repository\OffreRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=OffreRepository::class)
@@ -19,20 +20,38 @@ class Offre
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $idmedecin;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=Clinique::class, inversedBy="offres")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idclinique;
+    private $clinique;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Medecin::class, inversedBy="offres")
+     * @ORM\JoinColumn(nullable=false)
+     *  @Assert\NotBlank()
+
+     */
+    private $medecin;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Intervention::class, inversedBy="offres")
+     * @ORM\JoinColumn(nullable=false)
+     *  @Assert\NotBlank()
+     */
+    private $intervention;
+
 
     /**
      * @ORM\Column(type="integer")
      */
     private $prix;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
 
     /**
      * @ORM\OneToMany(targetEntity=ReservationOffre::class, mappedBy="offre", orphanRemoval=true)
@@ -49,26 +68,39 @@ class Offre
         return $this->id;
     }
 
-    public function getIdmedecin(): ?int
+
+    public function getClinique(): ?clinique
     {
-        return $this->idmedecin;
+        return $this->clinique;
     }
 
-    public function setIdmedecin(int $idmedecin): self
+    public function setClinique(?clinique $clinique): self
     {
-        $this->idmedecin = $idmedecin;
+        $this->clinique = $clinique;
 
         return $this;
     }
 
-    public function getIdclinique(): ?int
+    public function getMedecin(): ?medecin
     {
-        return $this->idclinique;
+        return $this->medecin;
     }
 
-    public function setIdclinique(int $idclinique): self
+    public function setMedecin(?medecin $medecin): self
     {
-        $this->idclinique = $idclinique;
+        $this->medecin = $medecin;
+
+        return $this;
+    }
+
+    public function getIntervention(): ?intervention
+    {
+        return $this->intervention;
+    }
+
+    public function setIntervention(?intervention $intervention): self
+    {
+        $this->intervention = $intervention;
 
         return $this;
     }
@@ -84,6 +116,19 @@ class Offre
 
         return $this;
     }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
 
 
     /**
