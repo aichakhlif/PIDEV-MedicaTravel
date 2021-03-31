@@ -6,11 +6,13 @@ use App\Repository\CliniqueRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=CliniqueRepository::class)
- */
+*/
 class Clinique
 {
     /**
@@ -54,9 +56,26 @@ class Clinique
      */
     private $image;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Medecin::class, mappedBy="clinique", orphanRemoval=true)
+     */
+    private $medecin;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $specialite;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $email;
+
     public function __construct()
     {
         $this->offres = new ArrayCollection();
+        $this->medecin = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -145,5 +164,60 @@ class Clinique
 
         return $this;
     }
+
+    /**
+     * @return Collection|medecin[]
+     */
+    public function getMedecin(): Collection
+    {
+        return $this->medecin;
+    }
+
+    public function addMedecin(medecin $medecin): self
+    {
+        if (!$this->medecin->contains($medecin)) {
+            $this->medecin[] = $medecin;
+            $medecin->setClinique($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMedecin(medecin $medecin): self
+    {
+        if ($this->medecin->removeElement($medecin)) {
+            // set the owning side to null (unless already changed)
+            if ($medecin->getClinique() === $this) {
+                $medecin->setClinique(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSpecialite(): ?string
+    {
+        return $this->specialite;
+    }
+
+    public function setSpecialite(string $specialite): self
+    {
+        $this->specialite = $specialite;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
 
 }

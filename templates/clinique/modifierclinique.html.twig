@@ -38,6 +38,16 @@
                             {{ form_errors(our_form.tel)}}
                         </tr>
                         <tr>
+                            {{ form_label(our_form.specialite,"Spécialité : ") }}
+                            {{ form_widget(our_form.specialite)}}
+                            {{ form_errors(our_form.specialite)}}
+                        </tr>
+                        <tr>
+                            {{ form_label(our_form.email,"Email : ") }}
+                            {{ form_widget(our_form.email)}}
+                            {{ form_errors(our_form.email)}}
+                        </tr>
+                        <tr>
                             {{ form_label(our_form.image,"Url Image : ") }}
                             {{ form_widget(our_form.image)}}
                             {{ form_errors(our_form.image)}}

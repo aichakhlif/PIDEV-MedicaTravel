@@ -23,48 +23,45 @@
                         </div>
                         <table>
                         {{ form_start(our_form,{'attr':{'novalidate' : 'novalidate'}}) }}
-                        <tr><a  data-bs-toggle="collapse" class="sidebar-link" aria-expanded="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                     class="feather feather-users align-middle">
-
-
+                            <tr>
+                                <a  data-bs-toggle="collapse" class="sidebar-link" aria-expanded="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                         class="feather feather-users align-middle">
                                     </svg>
-                                <span class="align-middle">  {{ form_label(our_form. medecin,"Medecin : ") }}
-                                    {{ form_widget(our_form.medecin)}}
-                                    {{ form_errors(our_form.medecin)}}</span>
-                            </a>
+                                    <span class="align-middle">   {{ form_label(our_form.clinique,"Clinique : ") }}
+                                        {{ form_widget(our_form.clinique)}}
+                                        {{ form_errors(our_form.clinique)}}</span>
+                                </a>
 
-                        </tr>
-                        <tr>
-                            <a  data-bs-toggle="collapse" class="sidebar-link" aria-expanded="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                     class="feather feather-users align-middle">
-                                   </svg>
-                                <span class="align-middle">   {{ form_label(our_form.clinique,"Clinique : ") }}
-                                    {{ form_widget(our_form.clinique)}}
-                                    {{ form_errors(our_form.clinique)}}</span>
-                            </a>
-
-                        </tr>
-                        <tr>
-                            <a  data-bs-toggle="collapse" class="sidebar-link" aria-expanded="true">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                     class="feather feather-users align-middle">
-                                   </svg>
-                                <span class="align-middle">    {{ form_label(our_form.intervention,"Intervention : ") }}
-                                    {{ form_widget(our_form.intervention)}}
-                                    {{ form_errors(our_form.intervention)}}</span>
-                            </a>
+                            </tr>
+                            <tr>
+                                <a  data-bs-toggle="collapse" class="sidebar-link" aria-expanded="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                         class="feather feather-users align-middle">
+                                    </svg>
+                                    <span class="align-middle">    {{ form_label(our_form.intervention,"Intervention : ") }}
+                                        {{ form_widget(our_form.intervention)}}
+                                        {{ form_errors(our_form.intervention)}}</span>
+                                </a>
 
 
-                        </tr>
-                        <tr>
+                            </tr>
+                            <tr>
+
+
+
+                            <tr>
+
+                                {{ form_label(our_form.date,"Date Expiration : ") }}
+                                {{ form_widget(our_form.date)}}
+                                {{ form_errors(our_form.date)}}
+                            </tr>
+
+<tr>
 
                             {{ form_label(our_form.prix,"Prix : ") }}
                             {{ form_widget(our_form.prix)}}

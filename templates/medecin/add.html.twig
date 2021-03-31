@@ -28,6 +28,12 @@
                             {{ form_errors(our_form.nom)}}
                         </tr>
 
+                        <tr>
+                            {{ form_label(our_form.clinique,"Clinique : ") }}
+                            {{ form_widget(our_form.clinique)}}
+                            {{ form_errors(our_form.clinique)}}
+                        </tr>
+
                         {{ form_end(our_form) }}
 
                         </table>

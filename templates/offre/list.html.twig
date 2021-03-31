@@ -11,6 +11,9 @@
             10%{color:Grey}
             20%{color:whitesmoke}
         }</style>
+    <script src="{{ asset('js/recherche.min.js') }}"></script>
+    <input type="text" class="form-control" placeholder="CHERCHER OFFRE..." aria-label="Search" id="search">
+
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -21,12 +24,13 @@
                             <strong class="card-title"><h1 class="text-center   text-uppercase animateuse">Liste des Offres !</h1></strong>
                         </div>
                         <div class="card-body">
-                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                            <table class="table table-bordered dataTable" id="tableac" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                 <tr>
-                                    <td>ID</td>
+
                                     <td>Nom Médecin</td>
                                     <td>Nom Clinique</td>
                                     <td>Nom Intervention</td>
+                                    <td>Date Expiration</td>
                                     <td>Prix</td>
                                     <td></td>
                                     <td></td>
@@ -34,23 +38,55 @@
 
 
                                 </tr>
+                                <tbody>
                                 {% for offre in offre %}
                                     <tr>
-                                        <td>{{offre.id}}</td>
+
                                         <td>{{offre.medecin}}</td>
                                         <td>{{offre.clinique}}</td>
                                         <td>{{offre.intervention}}</td>
+                                        <td>{{offre.date|date('Y-m-d')}}</td>
                                         <td>{{offre.prix}}</td>
 
-                                        <td><a href="{{ path('updateoffre',{'id':offre.id}) }}"><button type="button" class="btn btn-outline-success" data-dismiss="modal">Update</button></a></td>
-                                        <td><a href="{{ path('dropoffre',{'id':offre.id}) }}" ><button type="button" class="btn btn-outline-danger" data-dismiss="modal">Delete</button></a></td>
+                                        <td><a href="{{ path('updateoffre',{'id':offre.id}) }}"><button type="button" class="btn btn-outline-success" data-dismiss="modal">Modifier</button></a></td>
+                                        <td><a href="{{ path('dropoffre',{'id':offre.id}) }}" ><button type="button" class="btn btn-outline-danger" data-dismiss="modal">Supprimer</button></a></td>
 
 
 
                                     </tr>
 
+                                    <script>
+                                        $(document).ready(function(){
+                                            $('#search').keyup(function(){
+                                                search_table($(this).val());
+                                            });
+                                            function search_table(value){
+                                                $('#tableac tbody tr').each(function(){
+                                                    var found = 'false';
+                                                    $(this).each(function(){
+                                                        if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                                        {
+                                                            found = 'true';
+                                                        }
+                                                    });
+                                                    if(found == 'true')
+                                                    {
+                                                        $(this).show();
+
+                                                    }
+                                                    else
+                                                    {
+                                                        $(this).hide();
+
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    </script>
                                 {%endfor%}
+                                </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>
@@ -59,7 +95,7 @@
             </div>
         </div><!-- .animated -->
     </div><!-- .content -->
-
+    <tr><td><a href="{{ path('listimprimer') }}"><button type="button" class="btn btn-outline-primary" data-dismiss="modal">Imprimer</button></a></td></tr>
 
     </div><!-- /#right-panel -->
     </html>

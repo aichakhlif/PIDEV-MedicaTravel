@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Offre;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Types\DateType;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -47,4 +48,61 @@ class OffreRepository extends ServiceEntityRepository
         ;
     }
     */
+/*
+    public function search($term)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.prix LIKE  :searchTerm')
+            ->setParameter('searchTerm', '%'.$term.'%')
+            ->getQuery()
+            ->execute()
+            ;
+    }
+*/public function listOrderByCClinique()
+{
+    return $this->createQueryBuilder('s')
+     ->GroupBy('s.clinique')->getQuery()->getResult();
+
+   /* $em=$this->getEntityManager();
+    $query=$em->createQuery(
+        'SELECT clinique from App\Entity\Offre clinique GROUP BY clinique'
+    );
+    return $query->getResult();*/
+
+
+
+
+
+}
+    public function listOrderByDate()
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.date >   :date1')
+            ->setParameter('date1', new \DateTime('now'))
+            ->orderBy('s.date', 'DESC')
+            ->getQuery()->getResult();
+    }
+
+    public function DateExpr()
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.date >   :date1')
+            ->setParameter('date1', new \DateTime('now'))
+            ->getQuery()->getResult();
+    }
+    public function SearchName($data)
+    {
+        return $this->createQueryBuilder('c')
+            ->where('c.prix LIKE  :data')
+            ->orWhere('c.date LIKE  :data ')
+
+
+            ->setParameter('data', '%'.$data.'%')
+            ->getQuery()->getResult()
+            ;
+    }
+
+
+
+
 }

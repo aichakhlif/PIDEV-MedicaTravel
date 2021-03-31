@@ -64,4 +64,5 @@ class MedecinController extends AbstractController
         return $this->redirectToRoute('listmed');
 
     }
+
 }

@@ -20,6 +20,7 @@ class MedecinFormType extends AbstractType
                     'placeholder'=>'Nom'
                 ]
             ])
+            ->add('clinique')
             ->add('Envoyer', SubmitType::class,[
                 'attr'=> [
                     'class'=>'btn btn-primary',

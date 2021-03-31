@@ -1,0 +1,94 @@
+<ul>
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+</ul>
+<h1 >Liste Des Offres</h1>
+<table id="customers">
+    <thead>
+    <tr>
+
+        <th>Medecin</th>
+        <th>Clinique</th>
+
+        <th>Intervention</th>
+        <th>Date Expiration</th>
+        <th>Prix</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+            {% for offre in offre %}
+        <tr>
+
+            <td>{{offre.medecin}}</td>
+            <td>{{offre.clinique}}</td>
+            <td>{{offre.intervention}}</td>
+            <td>{{offre.date|date('Y,m,d')}}</td>
+            <td>{{offre.prix}}</td>
+
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<br><br>
+
+<style>
+    h1{
+        position: center;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #4CAF50;
+    }
+    #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+</style>

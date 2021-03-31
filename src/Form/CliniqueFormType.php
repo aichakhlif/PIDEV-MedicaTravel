@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+
 
 class CliniqueFormType extends AbstractType
 {
@@ -31,11 +33,20 @@ class CliniqueFormType extends AbstractType
                     'class'=>'form-control',
                     'placeholder'=>'Numéro téléphone'
                 ]])
-            ->add('image',TextType::class,[
+            ->add('specialite',TextType::class,[
                 'attr'=> [
                     'class'=>'form-control',
-                    'placeholder'=>'Url image'
-                ]])
+                    'placeholder'=>'Specialité'
+                ]
+            ])
+            ->add('email',TextType::class,[
+                'attr'=> [
+                    'class'=>'form-control',
+                    'placeholder'=>'email'
+                ]
+            ])
+            ->add('image',FileType::class,array('label'=>'inserer une image',
+                'data_class' => null))
             ->add('Envoyer', SubmitType::class,[
                 'attr'=> [
                     'class'=>'btn btn-primary',

@@ -29,6 +29,12 @@ class Medecin
      */
     private $offres;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Clinique::class, inversedBy="medecin")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $clinique;
+
     public function __construct()
     {
         $this->offres = new ArrayCollection();
@@ -83,6 +89,18 @@ class Medecin
     public function __toString()
     {
         return(string)$this->getNom();
+    }
+
+    public function getClinique(): ?Clinique
+    {
+        return $this->clinique;
+    }
+
+    public function setClinique(?Clinique $clinique): self
+    {
+        $this->clinique = $clinique;
+
+        return $this;
     }
 
 }

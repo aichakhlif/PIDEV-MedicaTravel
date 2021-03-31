@@ -22,11 +22,7 @@
                             <strong class="card-title"><h1 class="text-center   text-uppercase animateuse">Modifier une Offre !</h1></strong>
                         </div>
                         {{ form_start(our_form,{'attr':{'novalidate' : 'novalidate'}}) }}
-                        <tr>
-                            {{ form_label(our_form. medecin,"Medecin : ") }}
-                            {{ form_widget(our_form.medecin)}}
-                            {{ form_errors(our_form.medecin)}}
-                        </tr>
+
                         <tr>
                             {{ form_label(our_form.clinique,"Clinique : ") }}
                             {{ form_widget(our_form.clinique)}}
@@ -36,6 +32,11 @@
                             {{ form_label(our_form.intervention,"Intervention : ") }}
                             {{ form_widget(our_form.intervention)}}
                             {{ form_errors(our_form.intervention)}}
+                        </tr>
+                        <tr>
+                            {{ form_label(our_form.date,"Date Expiration : ") }}
+                            {{ form_widget(our_form.date)}}
+                            {{ form_errors(our_form.date)}}
                         </tr>
                         <tr>
                             {{ form_label(our_form.prix,"Prix : ") }}

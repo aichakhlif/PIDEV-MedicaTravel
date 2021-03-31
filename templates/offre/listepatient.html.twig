@@ -25,6 +25,11 @@
         <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
     {% endblock %}
+    <style>
+        .westt{
+            margin-left: 600px;
+        }
+    </style>
 </head>
 
 <body>
@@ -132,18 +137,25 @@
     </div>
 </section>
 <!-- Breadcrumb Section End -->
-
-<!-- Pricing Section Begin -->
+<br>
+<br>
+<div class="westt">
+<button class="btn-outline-primary" align="center"><a href="{{ path('listoffre2') }}">Trier Par Date</a></button>
+</div>
+    <!-- Pricing Section Begin -->
 <section class="pricing spad">
 
-    <div class="container">
+
+
+
+    <div class="container js-filter" >
 
         <div class="row">
             {% for offre in offre %}
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="pricing__item">
-                        <div class="pricing__item__title">
-                            <p>ID Offre : {{offre.id}}</p>
+                <div class="col-lg-4 col-md-6 col-sm-6 " >
+                    <div class="pricing__item ">
+                        <div class="pricing__item__title ">
+
 
                             <h3>Dr. {{offre.medecin}} <span>Plastic surgeon</span>
                             </h3>
@@ -152,6 +164,7 @@
                             <li>
                                 <span>Clinique : {{offre.clinique}}</span>
                                 <span>Operation : {{offre.intervention}}</span>
+                                <span>Date Expiration : {{offre.date|date('Y-m-d')}}</span>
                                 <span>Price : {{offre.prix}} Dt</span>
                             </li>
 
@@ -166,7 +179,10 @@
         </div>
 
     </div>
+    <div class="navigation " style="text-align:center" align="center">
+        {{ knp_pagination_render(offre) }}
 
+    </div>
 </section>
 <!-- Pricing Section End -->
 
@@ -238,7 +254,7 @@
             <div class="col-lg-4 col-md-12 col-sm-6">
                 <div class="footer__map">
                     <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48158.305462977965!2d-74.13283844036356!3d41.02757295168286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2e440473470d7%3A0xcaf503ca2ee57958!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2sbd!4v1575917275626!5m2!1sen!2sbd"
+                            src="https://www.google.com/maps/d/u/0/embed?mid=1aRU8ITyWOfedwdeEgvnbUeWDzk2ePmsA"
                             height="190" style="border:0" allowfullscreen=""></iframe>
                 </div>
             </div>
@@ -278,6 +294,7 @@
     <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+
 {% endblock %}
 </body>
 

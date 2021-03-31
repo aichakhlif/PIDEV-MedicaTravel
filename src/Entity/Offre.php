@@ -21,18 +21,21 @@ class Offre
     /**
      * @ORM\ManyToOne(targetEntity=Clinique::class, inversedBy="offres")
      * @ORM\JoinColumn(nullable=false)
+     *  @Assert\NotBlank()
      */
     private $clinique;
 
     /**
      * @ORM\ManyToOne(targetEntity=Medecin::class, inversedBy="offres")
      * @ORM\JoinColumn(nullable=false)
+     *  @Assert\NotBlank()
      */
     private $medecin;
 
     /**
      * @ORM\ManyToOne(targetEntity=Intervention::class, inversedBy="offres")
      * @ORM\JoinColumn(nullable=false)
+     *  @Assert\NotBlank()
      */
     private $intervention;
 
@@ -41,6 +44,11 @@ class Offre
      * @Assert\NotBlank()
      */
     private $prix;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
 
 
 
@@ -93,6 +101,18 @@ class Offre
     public function setPrix(int $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }
