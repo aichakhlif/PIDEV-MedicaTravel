@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dcc3d86e-1627-4ec2-a70b-5bf27de81276" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pidev/templates/base2.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/src/Controller/DossierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/src/Controller/DossierController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/src/Controller/RendezVousController.php" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/src/Controller/RendezVousController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/src/Entity/Dossier.php" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/src/Entity/Dossier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/src/Entity/Medecin.php" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/src/Entity/Medecin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/src/Entity/Patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/src/Entity/Patient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/src/Entity/RendezVous.php" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/src/Entity/RendezVous.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/src/Form/DossierType.php" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/src/Form/DossierType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/src/Form/RendezVousType.php" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/src/Form/RendezVousType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/templates/back.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/templates/back.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/templates/back/listDossier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/templates/back/listDossier.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/templates/dossier/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/templates/dossier/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/templates/dossier/listeDossier.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/templates/dossier/listeDossier.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pidev/templates/rendez_vous/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/pidev/templates/rendez_vous/add.html.twig" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/pidev/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/pidev" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/pidev/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/pidev/vendor/twig/extra-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/pidev/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/pidev/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/security-http" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/framework-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/browser-kit" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/dotenv" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/security-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/dependency-injection" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/cache" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/pidev/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/web-link" />
+      <path value="$PROJECT_DIR$/pidev/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/web-server-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/var-exporter" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/monolog-bridge" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/inflector" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/asset" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/config" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/cache-contracts" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/flex" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/proxy-manager-bridge" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/pidev/vendor/symfony/debug-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/pidev/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/pidev/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/pidev/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/pidev/vendor/composer" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/pidev/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/doctrine-migrations-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/pidev/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/pidev/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/pidev/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/pidev/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/pidev/vendor/psr/cache" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1pcVuF1sReukVFpQVk6y4gQw5H5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/symfony-fullcalendar-master" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\pidev2\pidev\templates\calendar" />
+      <recent name="C:\wamp64\www\pidev2\pidev\templates\vv" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dcc3d86e-1627-4ec2-a70b-5bf27de81276" name="Default Changelist" comment="" />
+      <created>1615482586013</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615482586013</updated>
+      <workItem from="1615482587121" duration="41471000" />
+      <workItem from="1616328623293" duration="38993000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617101516186">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="95" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1280.680@0.0.1280.680" timestamp="1617101516186" />
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1615486871211">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1615486871211" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1617029800283">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1280.680@0.0.1280.680" timestamp="1617029800283" />
+    <state x="0" y="88" width="942" height="477" key="dock-window-1" timestamp="1615487904990">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="88" width="942" height="477" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1615487904990" />
+    <state x="296" y="150" key="run.anything.popup" timestamp="1616974381489">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="296" y="150" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1616974381489" />
+  </component>
+</project>
