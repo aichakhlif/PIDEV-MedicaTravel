@@ -138,15 +138,19 @@
 <!-- Doctor Section Begin -->
 <section class="doctor spad">
 
+        <div class="filter" >
+            <div class="col-sm-4">
+            {% include 'medecin/_filter_medecin.html.twig' with {Medform: Medform} only  %}
+            </div>
+        </div>
+
     <div class="container">
 
         <div class="doctor__item">
 
 
             <div class="row">
-                <div class="col-md-3" >
-                    {% include 'medecin/_filter_medecin.html.twig' with {Medform: Medform} only  %}
-                </div>
+
                 {%for doc in listmedecin %}
 
                     <div class="col-lg-6 order-lg-3 ">

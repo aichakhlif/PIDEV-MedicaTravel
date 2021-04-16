@@ -139,19 +139,20 @@
 <!-- Pricing Section Begin -->
 
 <section class="hero spad set-bg"data-setbg="{{ asset('img/hero-bg.jpg') }}">
-
+    <div class="filter">
+        <div class="col-sm-4">
+            {% include 'intervention/_filter.html.twig' with {form: form} only  %}
+        </div>
+    </div>
 
     <div class="container" >
 
-        <div id="myDIV"  class="row"   >
-            <div class="col-md-3" >
-                {% include 'intervention/_filter.html.twig' with {form: form} only  %}
-            </div>
 
+            <div class="row">
 
             {%for op in listintervention %}
 
-                <div id="divselected" class="col-lg-4 col-md-6 col-sm-6" >
+                <div class="col-lg-4 col-md-6 col-sm-6" >
                     <div class="pricing__item" >
                         <div class="pricing__item__title">
                             <p>{{ op.specialite |upper}}</p>
@@ -172,7 +173,7 @@
                 </div>
 
             {% endfor %}
-
+            </div>
 
 
         </div>
