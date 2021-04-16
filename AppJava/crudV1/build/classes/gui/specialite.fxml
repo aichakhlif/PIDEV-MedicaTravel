@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpecialiteController">
+   <children>
+      <TextField fx:id="txttitre" layoutX="297.0" layoutY="52.0" prefHeight="31.0" prefWidth="153.0" />
+      <Label layoutX="209.0" layoutY="57.0" text="Titre :" />
+      <Button fx:id="ajouter" layoutX="176.0" layoutY="235.0" mnemonicParsing="false" onAction="#addaction" text="ajouter" />
+      <TableView fx:id="tablesp" layoutX="502.0" layoutY="35.0" prefHeight="200.0" prefWidth="360.0">
+        <columns>
+          <TableColumn fx:id="idsp" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="titresp" prefWidth="284.0" text="TITRE" />
+        </columns>
+      </TableView>
+      <Button fx:id="modifierspec" layoutX="269.0" layoutY="235.0" mnemonicParsing="false" onAction="#editaction" text="modifier" />
+      <Button fx:id="deletespec" layoutX="388.0" layoutY="235.0" mnemonicParsing="false" onAction="#deleteaction" text="suprimer" />
+      <VBox prefHeight="400.0" prefWidth="129.0" style="-fx-background-color: #1a8cff;">
+         <children>
+            <Pane prefHeight="40.0" prefWidth="129.0" />
+            <Pane prefHeight="46.0" prefWidth="129.0">
+               <children>
+                  <Button fx:id="btn_med" layoutY="8.0" mnemonicParsing="false" onAction="#gotomed" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #1a8cff;" text="Medecin" />
+               </children>
+            </Pane>
+            <Pane prefHeight="47.0" prefWidth="129.0" />
+            <Button fx:id="btn_inter" mnemonicParsing="false" onAction="#gotointer" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: #1a8cff;" text="Intervention" />
+            <Pane prefHeight="70.0" prefWidth="129.0" />
+            <Button fx:id="btn_spec" mnemonicParsing="false" onAction="#gotospec" prefHeight="31.0" prefWidth="133.0" style="-fx-background-color: #1a8cff;" text="Specialité" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

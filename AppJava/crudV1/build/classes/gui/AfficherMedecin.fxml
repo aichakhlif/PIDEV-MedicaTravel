@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="458.0" prefWidth="1274.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherMedecinController">
+   <children>
+      <TableView fx:id="tablemed" layoutX="662.0" layoutY="56.0" prefHeight="286.0" prefWidth="581.0">
+        <columns>
+          <TableColumn fx:id="idmed" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nommed" prefWidth="100.0" text="NOM" />
+            <TableColumn fx:id="prenommed" prefWidth="101.0" text="PRENOM" />
+            <TableColumn fx:id="emailmed" prefWidth="113.0" text="EMAIL" />
+            <TableColumn fx:id="numeromed" prefWidth="84.0" text="NUMERO" />
+            <TableColumn fx:id="imagemed" prefWidth="104.0" text="IMAGE" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtnom" layoutX="403.0" layoutY="68.0" />
+      <TextField fx:id="txtprenom" layoutX="403.0" layoutY="129.0" />
+      <TextField fx:id="txtemail" layoutX="403.0" layoutY="178.0" />
+      <TextField fx:id="txtnum" layoutX="403.0" layoutY="236.0" />
+      <TextField fx:id="txtpic" layoutX="403.0" layoutY="299.0" />
+      <Label layoutX="259.0" layoutY="73.0" text="Nom:" />
+      <Label layoutX="259.0" layoutY="134.0" text="Prenom:" />
+      <Label layoutX="259.0" layoutY="183.0" text="Email:" />
+      <Label layoutX="240.0" layoutY="241.0" text="Numero de telephone :" />
+      <Label layoutX="259.0" layoutY="304.0" text="Image" />
+      <Button fx:id="ajouter" layoutX="253.0" layoutY="384.0" mnemonicParsing="false" onAction="#addAction" text="ajouter" />
+      <Button fx:id="modifmed" layoutX="357.0" layoutY="384.0" mnemonicParsing="false" onAction="#editaction" text="modifier" />
+      <Button fx:id="suppmed" layoutX="465.0" layoutY="384.0" mnemonicParsing="false" onAction="#deleteaction" text="supprimer" />
+      <VBox prefHeight="458.0" prefWidth="143.0" style="-fx-background-color: #1a8cff;">
+         <children>
+            <Pane prefHeight="40.0" prefWidth="129.0" />
+            <Pane prefHeight="46.0" prefWidth="129.0">
+               <children>
+                  <Button fx:id="btn_med" layoutY="8.0" mnemonicParsing="false" onAction="#gotomed" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #1a8cff;" text="Medecin" />
+               </children>
+            </Pane>
+            <Pane prefHeight="47.0" prefWidth="129.0" />
+            <Button fx:id="btn_inter" mnemonicParsing="false" onAction="#gotointer" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: #1a8cff;" text="Intervention" />
+            <Pane prefHeight="70.0" prefWidth="129.0" />
+            <Button fx:id="btn_spec" mnemonicParsing="false" onAction="#gotospec" prefHeight="31.0" prefWidth="133.0" style="-fx-background-color: #1a8cff;" text="Specialité" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
