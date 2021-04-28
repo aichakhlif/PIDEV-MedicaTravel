@@ -29,11 +29,11 @@ public class InterFXMain extends Application {
        try {
             Parent root = new FXMLLoader().load(getClass().getResource("intervention.fxml"));
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Intervention");
+            primaryStage.setTitle("MEDICATRAVEL");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(ajoutaffichFXMain.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InterFXMain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

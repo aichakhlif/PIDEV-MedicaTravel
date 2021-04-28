@@ -5,10 +5,10 @@
  */
 package crudv1;
 
-import Entities.intervention;
-import Entities.medecin;
-import Service.ServiceIntervention;
-import Service.ServiceMedecin;
+import EntitiesO.intervention;
+import EntitiesO.medecin;
+import ServiceO.ServiceIntervention;
+import ServiceO.ServiceMedecin;
 
 
 /**
@@ -27,7 +27,7 @@ public class CrudV1 {
         intervention inter = new intervention("kdsff");
        // si.ajouterIntervention(inter);
         si.delete_inter(17);
-        System.out.print(si.AfficherIntervention());
+     //   System.out.print(sm.AfficherMedecin());
        /* medecin m = new medecin(20,"neila","dgqdsfq","dsfqd@;,;","dfdff"); 
         sm.update(m,40);
         sm.AfficherMedecin();*/

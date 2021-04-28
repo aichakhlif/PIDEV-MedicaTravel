@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -27,13 +28,13 @@ public class SpecFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
          try {
-            Parent root = new FXMLLoader().load(getClass().getResource("Specialite.fxml"));
+            Parent root = new FXMLLoader().load(getClass().getResource("specialite.fxml"));
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Specialite");
+            primaryStage.setTitle("MEDICATRAVEL");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(ajoutaffichFXMain.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SpecFXMain.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

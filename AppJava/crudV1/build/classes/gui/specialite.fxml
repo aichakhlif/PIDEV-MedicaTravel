@@ -1,40 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="883.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpecialiteController">
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SpecialiteController">
    <children>
-      <TextField fx:id="txttitre" layoutX="297.0" layoutY="52.0" prefHeight="31.0" prefWidth="153.0" />
-      <Label layoutX="209.0" layoutY="57.0" text="Titre :" />
-      <Button fx:id="ajouter" layoutX="176.0" layoutY="235.0" mnemonicParsing="false" onAction="#addaction" text="ajouter" />
-      <TableView fx:id="tablesp" layoutX="502.0" layoutY="35.0" prefHeight="200.0" prefWidth="360.0">
+      <TextField fx:id="txttitre" layoutX="327.0" layoutY="195.0" prefHeight="31.0" prefWidth="153.0" />
+      <Label layoutX="222.0" layoutY="200.0" text="Titre :" />
+      <TableView fx:id="tablesp" layoutX="592.0" layoutY="168.0" prefHeight="200.0" prefWidth="542.0">
         <columns>
           <TableColumn fx:id="idsp" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="titresp" prefWidth="284.0" text="TITRE" />
+          <TableColumn fx:id="titresp" prefWidth="466.0" text="TITRE" />
         </columns>
       </TableView>
-      <Button fx:id="modifierspec" layoutX="269.0" layoutY="235.0" mnemonicParsing="false" onAction="#editaction" text="modifier" />
-      <Button fx:id="deletespec" layoutX="388.0" layoutY="235.0" mnemonicParsing="false" onAction="#deleteaction" text="suprimer" />
-      <VBox prefHeight="400.0" prefWidth="129.0" style="-fx-background-color: #1a8cff;">
+      <JFXButton fx:id="ajouter" layoutX="198.0" layoutY="255.0" onAction="#addaction" prefHeight="38.0" prefWidth="85.0" text="ADD">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/add33.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="deletespec" layoutX="421.0" layoutY="255.0" onAction="#deleteaction" prefHeight="38.0" prefWidth="106.0" text="DELETE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="modifierspec" layoutX="293.0" layoutY="255.0" onAction="#editaction" prefHeight="38.0" prefWidth="110.0" text="UPDATE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/update.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <VBox fx:id="slider" layoutY="69.0" prefHeight="432.0" prefWidth="190.0" style="-fx-background-color: #0A4969;">
          <children>
-            <Pane prefHeight="40.0" prefWidth="129.0" />
-            <Pane prefHeight="46.0" prefWidth="129.0">
-               <children>
-                  <Button fx:id="btn_med" layoutY="8.0" mnemonicParsing="false" onAction="#gotomed" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #1a8cff;" text="Medecin" />
-               </children>
-            </Pane>
-            <Pane prefHeight="47.0" prefWidth="129.0" />
-            <Button fx:id="btn_inter" mnemonicParsing="false" onAction="#gotointer" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: #1a8cff;" text="Intervention" />
-            <Pane prefHeight="70.0" prefWidth="129.0" />
-            <Button fx:id="btn_spec" mnemonicParsing="false" onAction="#gotospec" prefHeight="31.0" prefWidth="133.0" style="-fx-background-color: #1a8cff;" text="Specialité" />
+            <JFXButton prefHeight="38.0" prefWidth="144.0" text="DASHBOARD" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/dash.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btn_spec1" onAction="#gotospec" prefHeight="38.0" prefWidth="119.0" text="Specialité" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/8d3f7432-00fb-46c7-b9f2-e16a5c11ac39.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_inter1" onAction="#gotointer" prefHeight="38.0" prefWidth="136.0" text="Intervention" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/f0bf4cc7-8d56-42ff-9f47-7f310d8a2323.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_med1" onAction="#gotomed" prefHeight="38.0" prefWidth="114.0" text="Medecin" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/cd9e8dbe-caee-40e2-bea0-559f9f02e035.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
          </children>
       </VBox>
+      <HBox layoutX="190.0" prefHeight="70.0" prefWidth="980.0" style="-fx-background-color: #0A4969;">
+         <children>
+            <Label prefHeight="61.0" prefWidth="426.0" text="MEDICATRAVEL/Specialité" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
+               <font>
+                  <Font name="Book Antiqua" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="Menu" layoutX="33.0" layoutY="11.0" prefHeight="49.0" prefWidth="92.0" text="MENU" textFill="#b7b7b7">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="MenuClose" layoutX="33.0" layoutY="11.0" prefHeight="49.0" prefWidth="92.0" text="MENU" textFill="#b7b7b7">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="910.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/search-9-96.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="filtrefield" layoutX="932.0" layoutY="117.0" />
+      <Pagination fx:id="pagination" layoutX="566.0" layoutY="160.0" maxPageIndicatorCount="5" pageCount="5" prefHeight="266.0" prefWidth="599.0" />
    </children>
 </AnchorPane>

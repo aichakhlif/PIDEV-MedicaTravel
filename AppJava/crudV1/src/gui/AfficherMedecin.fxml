@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="458.0" prefWidth="1274.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherMedecinController">
+<AnchorPane id="AnchorPane" prefHeight="458.0" prefWidth="1349.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AfficherMedecinController">
    <children>
-      <TableView fx:id="tablemed" layoutX="662.0" layoutY="56.0" prefHeight="286.0" prefWidth="581.0">
+      <TableView fx:id="tablemed" layoutX="532.0" layoutY="167.0" prefHeight="286.0" prefWidth="803.0">
         <columns>
           <TableColumn fx:id="idmed" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="nommed" prefWidth="100.0" text="NOM" />
@@ -19,34 +25,191 @@
             <TableColumn fx:id="emailmed" prefWidth="113.0" text="EMAIL" />
             <TableColumn fx:id="numeromed" prefWidth="84.0" text="NUMERO" />
             <TableColumn fx:id="imagemed" prefWidth="104.0" text="IMAGE" />
+            <TableColumn fx:id="titre_specialite" prefWidth="242.0" text="Titre" />
         </columns>
       </TableView>
-      <TextField fx:id="txtnom" layoutX="403.0" layoutY="68.0" />
-      <TextField fx:id="txtprenom" layoutX="403.0" layoutY="129.0" />
-      <TextField fx:id="txtemail" layoutX="403.0" layoutY="178.0" />
-      <TextField fx:id="txtnum" layoutX="403.0" layoutY="236.0" />
-      <TextField fx:id="txtpic" layoutX="403.0" layoutY="299.0" />
-      <Label layoutX="259.0" layoutY="73.0" text="Nom:" />
-      <Label layoutX="259.0" layoutY="134.0" text="Prenom:" />
-      <Label layoutX="259.0" layoutY="183.0" text="Email:" />
-      <Label layoutX="240.0" layoutY="241.0" text="Numero de telephone :" />
-      <Label layoutX="259.0" layoutY="304.0" text="Image" />
-      <Button fx:id="ajouter" layoutX="253.0" layoutY="384.0" mnemonicParsing="false" onAction="#addAction" text="ajouter" />
-      <Button fx:id="modifmed" layoutX="357.0" layoutY="384.0" mnemonicParsing="false" onAction="#editaction" text="modifier" />
-      <Button fx:id="suppmed" layoutX="465.0" layoutY="384.0" mnemonicParsing="false" onAction="#deleteaction" text="supprimer" />
-      <VBox prefHeight="458.0" prefWidth="143.0" style="-fx-background-color: #1a8cff;">
+      <TextField fx:id="txtnom" layoutX="256.0" layoutY="146.0" />
+      <TextField fx:id="txtprenom" layoutX="257.0" layoutY="201.0" />
+      <TextField fx:id="txtemail" layoutX="256.0" layoutY="258.0" />
+      <TextField fx:id="txtnum" layoutX="256.0" layoutY="310.0" />
+      <Label layoutX="179.0" layoutY="151.0" text="Nom:" />
+      <Label layoutX="181.0" layoutY="206.0" text="Prenom:" />
+      <Label layoutX="189.0" layoutY="263.0" text="Email:" />
+      <Label layoutX="170.0" layoutY="315.0" prefHeight="21.0" prefWidth="98.0" text=" telephone :" />
+      <Label layoutX="177.0" layoutY="375.0" prefHeight="21.0" prefWidth="55.0" text="Image:" />
+      <ComboBox fx:id="combotitre" layoutX="275.0" layoutY="99.0" onAction="#selecttitle" prefWidth="150.0" />
+      <VBox fx:id="slider" layoutY="85.0" prefHeight="430.0" prefWidth="171.0" style="-fx-background-color: #0A4969;">
          <children>
-            <Pane prefHeight="40.0" prefWidth="129.0" />
-            <Pane prefHeight="46.0" prefWidth="129.0">
-               <children>
-                  <Button fx:id="btn_med" layoutY="8.0" mnemonicParsing="false" onAction="#gotomed" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: #1a8cff;" text="Medecin" />
-               </children>
-            </Pane>
-            <Pane prefHeight="47.0" prefWidth="129.0" />
-            <Button fx:id="btn_inter" mnemonicParsing="false" onAction="#gotointer" prefHeight="31.0" prefWidth="132.0" style="-fx-background-color: #1a8cff;" text="Intervention" />
-            <Pane prefHeight="70.0" prefWidth="129.0" />
-            <Button fx:id="btn_spec" mnemonicParsing="false" onAction="#gotospec" prefHeight="31.0" prefWidth="133.0" style="-fx-background-color: #1a8cff;" text="Specialité" />
+            <JFXButton prefHeight="38.0" prefWidth="144.0" text="DASHBOARD" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/dash.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btn_spec1" onAction="#gotospec" prefHeight="38.0" prefWidth="119.0" text="Specialité" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/8d3f7432-00fb-46c7-b9f2-e16a5c11ac39.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_inter1" onAction="#gotointer" prefHeight="38.0" prefWidth="136.0" text="Intervention" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/f0bf4cc7-8d56-42ff-9f47-7f310d8a2323.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btn_med1" onAction="#gotomed" prefHeight="38.0" prefWidth="114.0" text="Medecin" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="29.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/cd9e8dbe-caee-40e2-bea0-559f9f02e035.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <Pane prefHeight="86.0" prefWidth="171.0" />
+            <ImageView fx:id="photo_view" fitHeight="130.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="photo_p" />
          </children>
       </VBox>
+      <HBox layoutX="170.0" prefHeight="85.0" prefWidth="1179.0" style="-fx-background-color: #0A4969;">
+         <children>
+           
+            <Label prefHeight="80.0" prefWidth="411.0" text="MEDICATRAVEL/Medecin" textFill="WHITE" textOverrun="LEADING_ELLIPSIS">
+               <font>
+                  <Font name="Book Antiqua" size="31.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="1085.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/search-9-96.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="filtrefield" layoutX="1117.0" layoutY="99.0" />
+      <JFXButton fx:id="suppmed" layoutX="389.0" layoutY="471.0" onAction="#deleteaction" prefHeight="38.0" prefWidth="106.0" text="DELETE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/delete.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="modifmed" layoutX="274.0" layoutY="471.0" onAction="#editaction" prefHeight="38.0" prefWidth="110.0" text="UPDATE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="modifierspec" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/update.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label fx:id="Menu" layoutX="14.0" layoutY="18.0" prefHeight="49.0" prefWidth="114.0" text="MENU" textFill="#b7b7b7">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="MenuClose" layoutX="14.0" layoutY="18.0" prefHeight="49.0" prefWidth="119.0" text="MENU" textFill="#b7b7b7">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="176.0" layoutY="104.0" text="specialite:" />
+      <Button fx:id="filepic" layoutX="256.0" layoutY="370.0" mnemonicParsing="false" onAction="#uploadimage" prefHeight="31.0" prefWidth="187.0" text="Select File " />
+      <JFXButton fx:id="ajout" layoutX="176.0" layoutY="471.0" onAction="#ajouter" prefHeight="38.0" prefWidth="85.0" text="ADD">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/add33.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <ImageView fx:id="checknom" fitHeight="21.0" fitWidth="22.0" layoutX="467.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="checkprenom" fitHeight="21.0" fitWidth="22.0" layoutX="467.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="checkemail" fitHeight="21.0" fitWidth="22.0" layoutX="467.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="checknum" fitHeight="21.0" fitWidth="22.0" layoutX="467.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton fx:id="contact_med" layoutX="933.0" layoutY="95.0" onAction="#contactermed" prefHeight="38.0" prefWidth="126.0" text="Contacter">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/gmail.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="chart1" layoutX="784.0" layoutY="96.0" onAction="#chartaction" prefHeight="38.0" prefWidth="110.0" text="chart">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/diagram.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="locationMed" layoutX="621.0" layoutY="96.0" onAction="#GoToMap" prefHeight="38.0" prefWidth="150.0" text="cabinet ">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <graphic>
+            <ImageView fx:id="modifierspec1" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/google-maps%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
 </AnchorPane>

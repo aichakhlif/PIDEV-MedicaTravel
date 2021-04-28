@@ -7,21 +7,25 @@ package gui;
 
 
 
-import Entities.medecin;
-import Entities.specialite;
-import Service.ServiceIntervention;
-import Service.ServiceMedecin;
-
-import Service.ServiceSpecialite;
+import EntitiesO.intervention;
+import EntitiesO.medecin;
+import EntitiesO.specialite;
+import ServiceO.ServiceIntervention;
+import ServiceO.ServiceMedecin;
+import ServiceO.ServiceSpecialite;
+import com.jfoenix.controls.JFXButton;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,13 +35,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Pagination;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 /**
@@ -64,13 +72,24 @@ public class SpecialiteController implements Initializable {
     
            ObservableList<specialite>observableList;
     @FXML
-    private Button btn_med;
+    private VBox slider;
     @FXML
-    private Button btn_inter;
+    private JFXButton btn_spec1;
     @FXML
-    private Button btn_spec;
+    private JFXButton btn_inter1;
    /* @FXML
     private ImageView imgView;*/
+    @FXML
+    private JFXButton btn_med1;
+    @FXML
+    private Label Menu;
+    @FXML
+    private Label MenuClose;
+    @FXML
+    private TextField filtrefield;
+    @FXML
+    private Pagination pagination;
+     private final static int rowsPerPage = 5;  
 
 
     /**
@@ -78,6 +97,39 @@ public class SpecialiteController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //  slider.setTranslateX(176);
+        Menu.setOnMouseClicked(event -> {
+            TranslateTransition slide = new TranslateTransition();
+            slide.setDuration(Duration.seconds(0.4));
+            slide.setNode(slider);
+
+            slide.setToX(0);
+            slide.play();
+
+            slider.setTranslateX(-176);
+
+            slide.setOnFinished((ActionEvent e)-> {
+                Menu.setVisible(false);
+                MenuClose.setVisible(true);
+            });
+        });
+
+        MenuClose.setOnMouseClicked(event -> {
+            TranslateTransition slide = new TranslateTransition();
+            slide.setDuration(Duration.seconds(0.4));
+            slide.setNode(slider);
+
+            slide.setToX(-176);
+            slide.play();
+
+            slider.setTranslateX(0);
+
+            slide.setOnFinished((ActionEvent e)-> {
+                Menu.setVisible(true);
+                MenuClose.setVisible(false);
+            });
+        });
+    
         
        // Image img= new Image(getClass().getResourceAsStream("hero-bg.jpg"));
       //imgView.setImage(img);
@@ -88,6 +140,8 @@ public class SpecialiteController implements Initializable {
       
         list.addAll(sp.AfficherSpecialite());
       tablesp.setItems(list);
+       pagination.setPageFactory(this::createPage);  
+      search_prom();
        modifierspec.setDisable(true);
       deletespec.setDisable(true);
       ObservableList selectedCells = tablesp.getSelectionModel().getSelectedCells();
@@ -112,7 +166,20 @@ public class SpecialiteController implements Initializable {
                 }
             }
      });
-    }    
+    }   
+    private Node createPage(int pageIndex) {
+         ServiceSpecialite sp = new ServiceSpecialite();   
+      ObservableList<specialite> list = FXCollections.observableArrayList();
+        idsp.setCellValueFactory(new PropertyValueFactory<>("id"));
+        titresp.setCellValueFactory(new PropertyValueFactory<>("titre"));
+      
+        list.addAll(sp.AfficherSpecialite());
+          int fromIndex = pageIndex * rowsPerPage;
+        int toIndex = Math.min(fromIndex + rowsPerPage, list.size());
+        tablesp.setItems(FXCollections.observableArrayList(list.subList(fromIndex, toIndex)));
+       
+        return tablesp;
+    }
 
     @FXML
     private void addaction(ActionEvent event) {
@@ -147,6 +214,7 @@ try {
       
         list.addAll(sp.AfficherSpecialite());
       tablesp.setItems(list);
+       pagination.setPageFactory(this::createPage);  
     }
 
     @FXML
@@ -165,6 +233,7 @@ try {
    observableList =sp.AfficherSpecialite2();
    tablesp.setItems(observableList);
    alert.showAndWait();
+    pagination.setPageFactory(this::createPage);  
    tablesp.refresh();
     }
         
@@ -196,6 +265,49 @@ try {
               stage.setScene(scene);
               stage.show();
     }
-        
+        void search_prom() {
+                specialite s = new specialite();
+      ObservableList<specialite> list = FXCollections.observableArrayList();
+        idsp.setCellValueFactory(new PropertyValueFactory<>("id"));
+        titresp.setCellValueFactory(new PropertyValueFactory<>("titre"));
+      
+ObservableList<specialite> dataList;
+
+ServiceSpecialite sp = new ServiceSpecialite();   
+        dataList =sp.AfficherSpecialite2();
+       
+        tablesp.setItems(dataList);
+       
+        FilteredList<specialite> filteredData = new FilteredList<>(dataList, b -> true);
+       
+        filtrefield.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate((specialite promo) -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+               
+                  int intfiltrevalue=-1;
+              try{  
+                  intfiltrevalue=Integer.parseInt(lowerCaseFilter);
+              }catch(Exception ex){
+              intfiltrevalue=-1;
+              }
+                if (promo.getId()== intfiltrevalue&&intfiltrevalue!=-1) {
+                    return true; // Filter matches username
+               
+                }else  if (promo.getTitre().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true; // Filter matches password
+                        }
+             
+                else {
+                    return false; // Does not match.
+                }
+            });
+        });
+        SortedList<specialite> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tablesp.comparatorProperty());
+        tablesp.setItems(sortedData);
+    }
     
 }
